@@ -5,13 +5,14 @@ import { useAuth0 } from "@auth0/auth0-react";
 import   Loading  from "./components/index";
 import Home from "./Pages/Home";
 import LogIn from "./Pages/LogIn";
-
+import NavBar from "./Pages/NavBar";
+import Footer from "./Pages/Footer";
 import ProtectedRoute from "./auth/protected-route";
 
 import "./App.css";
 
 const App = () => {
-  const { isLoading } = useAuth0();
+  const { isLoading, isAuthenticated } = useAuth0();
 
   if (isLoading) {
     return <Loading />;
@@ -19,7 +20,7 @@ const App = () => {
 
   return (
     <div id="app" className="d-flex flex-column h-100">
-      {/* <NavBar /> */}
+    { isAuthenticated? <NavBar />:<div/>}
       <div className="container flex-grow-1">
         <Switch>
           <ProtectedRoute path="/" exact component={Home} />
@@ -27,7 +28,7 @@ const App = () => {
           <Route path="/loading" component={Loading} />
         </Switch>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
