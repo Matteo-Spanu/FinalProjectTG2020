@@ -9,7 +9,8 @@ export default function Loading() {
         width: "100%",
         height: "100vh",
         backgroundRepeat: 'no-repeat',
-        margin:'50px'
+        margin:'0 auto',
+        backgroundPosition:'center'
       }}
     >
       LOADING...
