@@ -7,11 +7,11 @@ export default function NavBar() {
   const { user } = useAuth0();
   const { name } = user;
   return (
-    <nav>
+    <nav style={{display:'flex',backgroundColor:'black',color:'white'}}>
       <h2>CoinOp</h2>
       <p>{name}</p>
-      <Link path='/'>Home</Link>
-      <Link path='/profile'>Profile</Link>
+      <Link to='/'>Home</Link>
+      <Link to='/profile'>Profile</Link>
       <LogoutButton/>
 
 
