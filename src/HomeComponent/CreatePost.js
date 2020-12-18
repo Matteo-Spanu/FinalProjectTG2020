@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export default function CreatePost(props){
     const [mod, setMod] = useState(true);
-return(<section>
+return(<section className='p-10'>
 <button onClick={()=>{setMod(true)}}>post</button>
 <button onClick={()=>{setMod(false)}}>review</button>
 {mod? <Post/>:<Recensione/>}
@@ -15,20 +15,22 @@ function Post(){
   const { name } = user;
     return(<div>
         <form>
-        <p>Ehi {name}!Some news to share?</p>
+        <p className='title'>Ehi {name}! </p>
             <input 
-            type='text' />
+            type='text'
+            placeholder='Some news to share?' />
         </form>
     </div>)
 }
 
 function Recensione(){
     return(<div> <form>
-    <p>What are you playing?</p>
+    <p className='title'>What are you playing?</p>
     <label>Game:</label>
     <input type='text' placeholder='Game'/>
     <label>Review:</label>
         <input 
-        type='text' />
+        type='text'
+        placeholder='Review' />
     </form></div>)
 }

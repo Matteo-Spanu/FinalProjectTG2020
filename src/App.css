@@ -1,3 +1,8 @@
+* {
+  background-color: black;
+  color: whitesmoke;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +40,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.center {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.borderbox {
+  border: 1px solid #bf6ec7;
+  border-radius: 9px;
+}
+
+.m-10 {
+  margin: 10px;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.title{
+  color:#7DFAA2;
+}
+
+.line{
+  margin: 20px;
+  border-color: #7DFAA2;
 }

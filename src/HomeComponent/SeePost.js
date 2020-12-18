@@ -26,13 +26,13 @@ export default function SeePost() {
       return props.posts.map((post, id) => {
         return post.type === "post" ? (
           <div key={id}>
-            {" "}
             <PostLayout post={post} />
+            <hr className='line'></hr>
           </div>
         ) : (
           <div key={id}>
-            {" "}
             <ReviewLayout review={post} />
+            <hr className='line'></hr>
           </div>
         );
       });
@@ -51,10 +51,12 @@ export default function SeePost() {
 export function PostLayout(props) {
   const { from, text, img } = props.post;
   return (
-    <div>
-      <h5>{from}</h5>
-      <p>{text}</p>
-      <img src={img} alt="post" />
+    <div className="borderbox m-10">
+      <div className="p-10">
+        <h3 className="title">{from}</h3>
+        <p>{text}</p>{" "}
+      </div>
+      <img src={img} alt="post" style={{ width: "100%" }} />
     </div>
   );
 }
@@ -62,10 +64,10 @@ export function PostLayout(props) {
 export function ReviewLayout(props) {
   const { from, text, game } = props.review;
   return (
-    <div>
-      <h5>
+    <div className="borderbox m-10 p-10">
+      <h3 className="title">
         {from} reviewed {game}
-      </h5>
+      </h3>
       <p>{text}</p>
     </div>
   );
