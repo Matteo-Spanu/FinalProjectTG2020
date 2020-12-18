@@ -1,10 +1,16 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import CreatePost from "../HomeComponent/CreatePost";
+import SeePost from "../HomeComponent/SeePost";
 
-export default function Home(){
-    const { user } = useAuth0();
-    const { name} = user;
+export default function Home() {
+  const { user } = useAuth0();
+  const { name } = user;
 
-return(<><h1>HOMMMME</h1>
-<p>Welcome {name}</p></>)
+  return (
+    <>
+      <CreatePost/>
+      <SeePost />
+    </>
+  );
 }

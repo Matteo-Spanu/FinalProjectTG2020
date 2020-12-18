@@ -21,7 +21,7 @@ const App = () => {
   return (
     <div id="app" className="d-flex flex-column h-100">
     { isAuthenticated? <NavBar />:<div/>}
-      <div className="container flex-grow-1">
+      <div className="container flex-grow-1" style={{paddingTop:'100px'}}>
         <Switch>
           <ProtectedRoute path="/" exact component={Home} />
           <Route path="/login" component={LogIn} />
