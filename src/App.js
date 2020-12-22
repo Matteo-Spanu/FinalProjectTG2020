@@ -7,6 +7,7 @@ import Home from "./Pages/Home";
 import LogIn from "./Pages/LogIn";
 import NavBar from "./Pages/NavBar";
 import Footer from "./Pages/Footer";
+import PersonalProfile from "./Pages/PersonalProfile";
 import ProtectedRoute from "./auth/protected-route";
 
 import "./App.css";
@@ -24,6 +25,7 @@ const App = () => {
       <div className="container flex-grow-1" style={{paddingTop:'100px'}}>
         <Switch>
           <ProtectedRoute path="/" exact component={Home} />
+          <ProtectedRoute path="/profile"  component={PersonalProfile} />
           <Route path="/login" component={LogIn} />
           <Route path="/loading" component={Loading} />
         </Switch>

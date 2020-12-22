@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
 import CommentSection from '../components/comment-section'
 const postprova = [
   {
@@ -62,7 +61,7 @@ export function PostLayout(props) {
         <h3 className="title">{from}</h3>
         <p>{text}</p>{" "}
       </div>
-      <img src={img} alt="post" style={{ width: "100%" }} />
+      <img src={img} alt="post" style={{ width: "100%", }} />
       <CommentSection comment={comment} id={id} allPost={props.allPost} setAllPost={props.setAllPost}/>
     </div>
   );
@@ -71,11 +70,13 @@ export function PostLayout(props) {
 export function ReviewLayout(props) {
   const { from, text, game, comment, id } = props.review;
   return (
-    <div className="borderbox m-10 p-10">
+    <div className="borderbox m-10 ">
+     <div className="p-10">
       <h3 className="title">
         {from} reviewed {game}
       </h3>
       <p>{text}</p>
+      </div>
       <CommentSection comment={comment} id={id} allPost={props.allPost} setAllPost={props.setAllPost} />
     </div>
   );
