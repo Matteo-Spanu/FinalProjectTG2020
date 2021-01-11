@@ -48,7 +48,7 @@ function closeModal() {
 
       <Modal show={modalOpen} onHide={closeModal}>
           {conversationsOpen ?
-          <NewConversationModal closeModal={closeModal} /> :
+          <NewConversationModal closeModal={()=>{setModalOpen(false)}} /> :
           <NewContactModal closeModal={closeModal} />
           
           }
