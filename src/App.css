@@ -41,7 +41,9 @@
     transform: rotate(360deg);
   }
 }
-
+.flex {
+  display: flex;
+}
 .center {
   margin: 0 auto;
   max-width: 600px;
@@ -60,11 +62,15 @@
   padding: 10px;
 }
 
-.title{
-  color:#7DFAA2;
+.title {
+  color: #7dfaa2;
 }
 
-.line{
+.line {
   margin: 20px;
-  border-color: #7DFAA2;
+  border-color: #7dfaa2;
+}
+.miniimg {
+  height: 150px;
+  width: 150px;
 }
