@@ -1,5 +1,7 @@
 import React, { useEffect, useState ,useRef} from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import getData from "../function/getdata"
+
 const data = {
   name: "Daniele Bellagente",
   img:
@@ -25,9 +27,12 @@ const data = {
 export default function PersonalProfile() {
   const [section, setSection] = useState("review");
   const [review, setReview] = useState([]);
-
+  const { user } = useAuth0();
+  const { name } = user;
+  
   useEffect(() => {
-    setReview(data.review)
+    getData("http://localhost:4000/myrev/"+name,setReview)
+    
     
   }, []);
   const Switch = () => {
