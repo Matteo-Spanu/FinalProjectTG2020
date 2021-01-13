@@ -15,13 +15,19 @@ export function ConversationsProvider({ id, children }) {
   const { contacts } = useContacts()
   const socket = useSocket()
 
-  function createConversation(recipients) {
+useEffect(() => {
+  console.log(conversations)
+  
+}, [conversations]);
+
+
+  function createConversation(recipients, game) {
     setConversations(prevConversations => {
-      return [...prevConversations, { recipients, messages: [] }]
+      return [...prevConversations, { game, recipients, messages: [] }]
     })
   }
 
-  const addMessageToConversation = useCallback(({ recipients, text, sender }) => {
+  const addMessageToConversation = useCallback(({ recipients, game,  text, sender }) => {
     setConversations(prevConversations => {
       let madeChange = false
       const newMessage = { sender, text }
@@ -42,7 +48,7 @@ export function ConversationsProvider({ id, children }) {
       } else {
         return [
           ...prevConversations,
-          { recipients, messages: [newMessage] }
+          { recipients, game,  messages: [newMessage] }
         ]
       }
     })
@@ -56,10 +62,10 @@ export function ConversationsProvider({ id, children }) {
     return () => socket.off('receive-message')
   }, [socket, addMessageToConversation])
 
-  function sendMessage(recipients, text) {
-    socket.emit('send-message', { recipients, text })
+  function sendMessage(recipients, game, text) {
+    socket.emit('send-message', { recipients, game, text })
 
-    addMessageToConversation({ recipients, text, sender: id })
+    addMessageToConversation({ recipients, game, text, sender: id })
   }
 
   const formattedConversations = conversations.map((conversation, index) => {

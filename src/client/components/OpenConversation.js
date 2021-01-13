@@ -16,6 +16,7 @@ export default function OpenConversation() {
 
     sendMessage(
       selectedConversation.recipients.map(r => r.id),
+      selectedConversation.game,
       text
     )
     setText('')
