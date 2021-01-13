@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useRef} from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 const data = {
   name: "Daniele Bellagente",
@@ -7,28 +7,33 @@ const data = {
   review: [
     {
       game: "Minecraft",
-      rec:
+      text:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
     {
       game: "Age of Empires II",
-      rec:
+      text:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
     {
       game: "Nba 2k19",
-      rec:
+      text:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
   ],
 };
 export default function PersonalProfile() {
   const [section, setSection] = useState("review");
+  const [review, setReview] = useState([]);
 
+  useEffect(() => {
+    setReview(data.review)
+    
+  }, []);
   const Switch = () => {
     switch (section) {
       case "review":
-        return <Review />;
+        return <Review review={review} setReview={setReview} />;
 
       case "list":
         return <List />;
@@ -75,19 +80,35 @@ export default function PersonalProfile() {
   );
 }
 
-export function Review() {
+export function Review(props) {
+
+  const inputGame=useRef("");
+  const inputRev=useRef("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+   
+      console.log({game:inputGame.current.value, text:inputRev.current.value})
+
+      
+  };
   return (
     <div>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <p className="title">What are you playing?</p>
           <label>Game:</label>
-          <input type="text" placeholder="Game" />
+          <input type="text" placeholder="Game" ref={inputGame}/>
           <label>Review:</label>
-          <input type="text" placeholder="Review" />
+          <input type="text" placeholder="Review" ref={inputRev} />
+          <button onClick={handleSubmit}>Post</button>
         </form>
       </div>
-      <div>{}</div>
+      <div>{props.review.map((rec,i)=>{
+        return <div className="borderbox m-10" key={i}>
+          <h3>{rec.game}</h3>
+          <p>{rec.text}</p>
+        </div>})}</div>
     </div>
   );
 }
