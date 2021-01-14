@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import '../App.css';
 
 export default function CommentSection(props) {
   const { user } = useAuth0();
@@ -19,7 +20,7 @@ export default function CommentSection(props) {
 
   return (
     <div className="p-10">
-      <button
+      <button className='button-comment'
         onClick={() => {
           setVisible(!visible);
         }}
@@ -31,20 +32,20 @@ export default function CommentSection(props) {
           {props.comment.map((comm, id) => {
             return (
               <div key={id}>
-                <h3>{comm.from}</h3>
-                <p>{comm.text}</p>
+                <h3 className='utente-comment'>{comm.from}</h3>
+                <p className='text-comment'>{comm.text}</p>
               </div>
             );
           })}
           <form onSubmit={addComment}>
-            <input
+            <input className='box-comment'
               type="text"
-              placeholder="comment"
+              placeholder="Comment"
               onChange={(e) => {
                 setComment(e.target.value);
               }}
             />
-            <button onClick={addComment}>send</button>
+            <button className='button-send' onClick={addComment}>Send</button>
           </form>
         </div>
       ) : (
