@@ -17,3 +17,17 @@ export  async function getData(url, setValue) {
     let response = await request.json();
     return response;
   }
+
+
+  export async function patchData(url, obj) {
+
+    const request = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(obj),
+    });
+    let response = await request.json();
+    return response;
+  }
