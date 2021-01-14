@@ -27,6 +27,7 @@ const data = {
 export default function PersonalProfile() {
   const [section, setSection] = useState("review");
   const [review, setReview] = useState([]);
+  const [list, setList] = useState([]);
   const { user } = useAuth0();
   const { name } = user;
   
@@ -35,13 +36,20 @@ export default function PersonalProfile() {
     
     
   }, []);
+
+  useEffect(() => {
+    getData("http://localhost:4000/mylist/"+name,setList)
+    
+    
+  }, []);
+
   const Switch = () => {
     switch (section) {
       case "review":
         return <Review review={review} setReview={setReview} />;
 
       case "list":
-        return <List />;
+        return <List list={list} setList={setList} />;
 
       case "calendar":
         return <Calendar />;
@@ -117,9 +125,35 @@ export function Review(props) {
     </div>
   );
 }
-export function List() {
-  return <div>List</div>;
+
+export function List(props) {
+
+  const inputGame = useRef("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    console.log({game:inputGame.current.value})
+  };
+
+  return (
+    <div>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <p className="title">What are you wishing for?</p>
+          <label>Game:</label>
+          <input type="text" placeholder="Game" ref={inputGame}/>
+          <button onClick={handleSubmit}>Add</button>
+        </form>
+      </div>
+      <div>{props.list.map((rec,i)=>{
+        return <div className="borderbox m-10" key={i}>
+          <h3>{rec.game}</h3>
+        </div>})}</div>
+    </div>
+  );
 }
+
 export function Calendar() {
   return <div>Calendar</div>;
 }
