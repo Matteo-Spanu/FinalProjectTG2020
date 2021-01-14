@@ -2,7 +2,7 @@ import React from "react";
 
 export default function NavBar() {
   return (
-    <footer
+    <footer 
       style={{
         width: "100%",
         backgroundColor: "#f890e7",
@@ -10,7 +10,7 @@ export default function NavBar() {
         textAlign: "center",
       }}
     >
-      <p>CoinOP made by: Matteo Spanu, Dario Bellusci, Daniele Bellagente</p>
+      <p className='text-footer'>CoinOP made by: Matteo Spanu, Dario Bellusci, Daniele Bellagente</p>
     </footer>
   );
 }

@@ -56,12 +56,12 @@ export default function SeePost() {
 export function PostLayout(props) {
   const { from, text, img, comment, id } = props.post;
   return (
-    <div className="borderbox m-10">
+    <div className="borderbox m-10"> 
       <div className="p-10">
         <h3 className="title">{from}</h3>
-        <p>{text}</p>{" "}
+        <div className='box-text-post'><p className='text-p'>{text}</p>{" "}</div>
       </div>
-      <img src={img} alt="post" style={{ width: "100%", }} />
+      <img className='img-post' src={img} alt="post" style={{ width: "100%", }}/>
       <CommentSection comment={comment} id={id} allPost={props.allPost} setAllPost={props.setAllPost}/>
     </div>
   );
@@ -75,7 +75,7 @@ export function ReviewLayout(props) {
       <h3 className="title">
         {from} reviewed {game}
       </h3>
-      <p>{text}</p>
+      <p className='text-p'>{text}</p>
       </div>
       <CommentSection comment={comment} id={id} allPost={props.allPost} setAllPost={props.setAllPost} />
     </div>

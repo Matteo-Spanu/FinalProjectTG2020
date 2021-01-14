@@ -3,6 +3,112 @@
   color: rgb(241, 241, 241);
 }
 
+/* NAVBAR */
+
+nav{
+  display: flex;
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
+
+  /* backgroundColor:'black',color:'white',position: "fixed",
+    left: "0",
+    top: "0",
+    textAlign: "center",width: "100%", */
+}
+
+.logo{
+display: inline-block;
+float: left;
+font-size:1.3em;
+margin-right: 20px!Important;
+}
+
+.logo:hover{
+
+}
+
+.menu{
+text-align: right;
+height: 30px;
+}
+
+.button-label{
+  margin: 0 20px;
+  background-color: #7DFAA2;
+  width: 100px;
+  height: 18px;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.button-label:hover{
+  background-color: #BF6EC7;
+}
+
+.label{
+color: black;
+font-size: 0.7em;
+font-weight: bold;
+display: flex;
+padding-left: 10px;
+}
+
+.label:hover{
+text-decoration: none;
+color: black;
+}
+
+
+.button-logout{
+background-color: #FD0953;
+font-size: 0.7em;
+border-radius: 3px;
+width: 100px;
+height: 18px;
+font-weight: bold;
+border: none;
+margin: 0 20px;
+}
+
+.button-logout:hover{
+  background-color: black;
+}
+
+
+
+/* TASTO CHAT */
+
+.button-chat{
+  margin-right: 20px;
+  width: 15%;
+  margin-left: 10px;
+  margin-top: 91vh;
+  position: fixed;
+  height: 26px;
+  background-color: #BF6EC7;
+  border-radius: 3px;
+  align-items: center;
+}
+
+.button-chat:hover{
+  background-color: #7DFAA2;
+}
+
+.label-chat{
+  font-weight: bold;
+  color: white;
+  font-size: 0.7em;
+  padding: 10px;
+}
+.label-chat:hover{
+  text-decoration: none;
+  color: black;
+}
+
+
+/* BODY */
+
 .App {
   text-align: center;
 }
@@ -49,28 +155,187 @@
   max-width: 600px;
 }
 
+/* PUBBLICAZIONE POST */
+
+
+.box-create-content{
+border: 2px solid #709AF8;
+border-radius: 6px;
+padding: 10px;
+margin: 10px;
+
+}
+
+.button-post{
+  width: 49%;
+  background-color: #BF6EC7;
+  border-radius: 3px;
+  border: none;
+  margin-right: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.button-post:hover{
+  background-color: #7DFAA2;
+  color: black;
+}
+
+.button-review{
+  width:49%;
+  background-color: #ED7199;
+  border-radius: 3px;
+  border: none;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.button-review:hover{
+  background-color: #7DFAA2;
+  color: black;
+}
+
+.create-contenet{
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+}
+
+.box{
+border: 1px solid  #7DFAA2;
+height: 80px;
+border-radius: 6px;
+}
+
+.button-create-review-game{
+  padding: 10px;
+  color: #ED7199;
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.button-create-review{
+  margin-right: 20px;
+  background-color: white;
+  border-radius: 3px;
+  color: black;
+  border: none;
+  padding-left: 10px;
+  font-size: 0.9em;
+  height: 22px;
+  width: 30%;
+
+} 
+
+/* SCRIVI POST */
+
+.button-type{
+  background-color:white;
+  border: none;
+  border-radius:3px;
+  width: 100%;
+  height: 80px;
+  color: black;
+  padding-left: 10px;
+  font-size: 0.8em;
+  margin-top: 10px;
+  
+}
+
+/* POST PUBBLICATI */
 .borderbox {
-  border: 1px solid #bf6ec7;
-  border-radius: 9px;
+  border: 2px solid #bf6ec7;
+  margin-top: 60px!Important;
 }
 
 .m-10 {
   margin: 10px;
+  border-radius: 6px;
+
 }
 
 .p-10 {
   padding: 10px;
+  border-radius: 6px;
+
 }
 
 .title {
   color: #7dfaa2;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.text-p{
+  margin: 0px;
+  font-size: 0.8em;
+  padding: 3px;
+  color: white;
+}
+
+.img-post{
+ padding: 10px;
+  border-radius: 9px;
+  
 }
 
 .line {
-  margin: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 40px;
+  margin-bottom: -20px;
   border-color: #7dfaa2;
 }
 .miniimg {
   height: 150px;
   width: 150px;
+}
+
+
+/* COMMENTI DEI POST */
+
+.button-comment{
+  border-radius: 3px;
+  margin-bottom: 10px;
+  border: none;
+  border: 2px solid #709AF8;
+  width: 100%;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.box-comment{
+  border: 2px solid #ED7199;
+  border-radius: 3px;
+  /* background-color: white; */
+  color: white;
+  font-size: 0.8em;
+  width: 75%;
+  margin-right: 10px;
+}
+
+
+.button-send {
+  border: 2px solid #7DFAA2;
+  border-radius: 3px;
+  width: 23%;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.utente-comment{
+  color: #7dfaa2;
+  font-size: 0.7em;
+  font-weight: normal;
+}
+
+.text-comment{
+  color: white;
+  font-size: 0.7em;
+  margin-top: -5px;
+}
+
+.text-footer{
+  font-size: 0.6em;
 }
