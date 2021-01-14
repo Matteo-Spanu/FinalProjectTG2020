@@ -1,12 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { getData, postData, patchData } from "../function/getdata";
-const data = {
-  name: "Daniele Bellagente",
-  img:
-    "https://images.unsplash.com/photo-1511529048424-b3adbbb2ef04?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-  
-};
+
 export default function PersonalProfile() {
   const [section, setSection] = useState("review");
   const [review, setReview] = useState([]);
