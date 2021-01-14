@@ -5,6 +5,7 @@ import { getData, postData, patchData } from "../function/getdata";
 export default function PersonalProfile() {
   const [section, setSection] = useState("review");
   const [review, setReview] = useState([]);
+  const [list, setList] = useState([]);
   const { user } = useAuth0();
   const { name , picture} = user;
   useEffect(() => {
@@ -12,19 +13,29 @@ export default function PersonalProfile() {
     getData("http://localhost:4000/myrev/" + name, setReview);
 
   }, []);
+
+
+  useEffect(() => {
+    getData("http://localhost:4000/mylist/"+name,setList)
+    
+    
+  }, []);
+
+
   useEffect(() => {
 
    console.log(review);
 
   }, [review]);
  
+
   const Switch = () => {
     switch (section) {
       case "review":
         return <Review review={review} setReview={setReview} />;
 
       case "list":
-        return <List />;
+        return <List list={list} setList={setList} />;
 
       case "calendar":
         return <Calendar />;
@@ -122,6 +133,34 @@ const addReview =(rev)=>{
   );
 }
 
+
+export function List(props) {
+
+  const inputGame = useRef("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    console.log({game:inputGame.current.value})
+  };
+
+  return (
+    <div>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <p className="title">What are you wishing for?</p>
+          <label>Game:</label>
+          <input type="text" placeholder="Game" ref={inputGame}/>
+          <button onClick={handleSubmit}>Add</button>
+        </form>
+      </div>
+      <div>{props.list.map((rec,i)=>{
+        return <div className="borderbox m-10" key={i}>
+          <h3>{rec.game}</h3>
+        </div>})}</div>
+    </div>
+  );
+
 export  function Comments(props) {
   const { user } = useAuth0();
   const { name } = user;
@@ -194,9 +233,8 @@ export  function Comments(props) {
 
 
 
-export function List() {
-  return <div>List</div>;
-}
+
+
 export function Calendar() {
   return <div>Calendar</div>;
 }
