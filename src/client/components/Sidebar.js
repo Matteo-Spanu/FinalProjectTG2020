@@ -19,17 +19,17 @@ function closeModal() {
 
 
   return (
-    <div style={{ wicth: "250px" }} className="d-flex flex-column">
+    <div  className="box-sidebar">
       <Tab.Container activeKey={activeKey} onSelect={setActiveKey}>
-        <Nav variant="tabs" className="justify-content-center">
+        <Nav variant="tabs" className="button-sidebar">
           <Nav.Item>
-            <Nav.Link eventKey={CONVERSATIONS_KEY}>Conversations</Nav.Link>
+           <div className='cc'> <Nav.Link className='button-sidebar-consersations' eventKey={CONVERSATIONS_KEY}>Conversations</Nav.Link></div>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey={CONTACTS_KEY}>Contacts</Nav.Link>
+          <div className='cc'><Nav.Link className='button-sider-contacts' eventKey={CONTACTS_KEY}>Contacts</Nav.Link></div>
           </Nav.Item>
         </Nav>
-        <Tab.Content className="border-right overflow-auto flex-grow-1">
+        <Tab.Content className="box-info-cc">
           <Tab.Pane eventKey={CONVERSATIONS_KEY}>
             <Conversations />
           </Tab.Pane>
@@ -37,13 +37,15 @@ function closeModal() {
             <Contacts />
           </Tab.Pane>
         </Tab.Content>
-        <div className="p-2 border-top border-right small">
-            Your Id: <span className="text-muted">{id}</span>
+        <div className="chat-info-id">
+          {/* <span className="info-id">{id}</span> */}
         </div>
+        <div className='box-button-new'>
         <Button onClick={() => setModalOpen(true)}
-        className="rounded-0">
+        className="button-new-consersations">
             New {conversationsOpen ? 'Conversation' : 'Contact'}
         </Button>
+        </div>
       </Tab.Container>
 
       <Modal show={modalOpen} onHide={closeModal}>

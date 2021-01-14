@@ -16,10 +16,10 @@ const { createContact } = useContacts()
     }
 
     return (
-        < >
+        <section className='box-new-module-consersation'>
            <Modal.Header closeButton>Create Contact</Modal.Header>
            <Modal.Body>
-               <Form onSubmit={handleSubmit}>
+               <Form  className='new-module-consersation'onSubmit={handleSubmit}>
                <Form.Group>
                    <Form.Label>Id</Form.Label>
                    <Form.Control type="text" ref={idRef} required />
@@ -31,6 +31,6 @@ const { createContact } = useContacts()
                <Button type="submit">Create</Button>
                </Form>
             </Modal.Body> 
-        </ >
+        </section>
     )
 }
