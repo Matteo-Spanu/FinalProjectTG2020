@@ -1,6 +1,6 @@
-import React, { useEffect, useState ,useRef} from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import getData from "../function/getdata"
+import { getData, postData } from "../function/getdata";
 
 const data = {
   name: "Daniele Bellagente",
@@ -29,12 +29,13 @@ export default function PersonalProfile() {
   const [review, setReview] = useState([]);
   const { user } = useAuth0();
   const { name } = user;
-  
   useEffect(() => {
-    getData("http://localhost:4000/myrev/"+name,setReview)
-    
-    
+
+    getData("http://localhost:4000/myrev/" + name, setReview);
+
   }, []);
+  
+ 
   const Switch = () => {
     switch (section) {
       case "review":
@@ -86,34 +87,53 @@ export default function PersonalProfile() {
 }
 
 export function Review(props) {
-
-  const inputGame=useRef("");
-  const inputRev=useRef("");
-
+  const inputGame = useRef("");
+  const inputRev = useRef("");
+  // const [newReview, setNewReview] = useState({});
+  const { user } = useAuth0();
+  const { name } = user;
+//  const handleChange =(e)=>{
+//   setNewReview({
+//     game: inputGame.current.value,
+//     text: inputRev.current.value,
+//   })
+//  }
+const addReview =(rev)=>{
+  const copyRev= props.review.slice();
+  copyRev.splice(0, 0, rev);
+  props.setReview(copyRev);
+};
   const handleSubmit = (e) => {
     e.preventDefault();
-   
-      console.log({game:inputGame.current.value, text:inputRev.current.value})
-
-      
+    postData("http://localhost:4000/myrev/" + name, {
+      User:name,
+      Game: inputGame.current.value,
+      Review: inputRev.current.value,
+    });
+    addReview({game: inputGame.current.value, text:inputRev.current.value,})
   };
   return (
     <div>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <p className="title">What are you playing?</p>
           <label>Game:</label>
-          <input type="text" placeholder="Game" ref={inputGame}/>
+          <input type="text" placeholder="Game" ref={inputGame} />
           <label>Review:</label>
           <input type="text" placeholder="Review" ref={inputRev} />
           <button onClick={handleSubmit}>Post</button>
         </form>
       </div>
-      <div>{props.review.map((rec,i)=>{
-        return <div className="borderbox m-10" key={i}>
-          <h3>{rec.game}</h3>
-          <p>{rec.text}</p>
-        </div>})}</div>
+      <div>
+        {props.review.map((rec, i) => {
+          return (
+            <div className="borderbox m-10" key={i}>
+              <h3>{rec.game}</h3>
+              <p>{rec.text}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
