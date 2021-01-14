@@ -135,14 +135,24 @@ const addReview =(rev)=>{
 
 
 export function List(props) {
-
+  const { user } = useAuth0();
+  const { name } = user;
   const inputGame = useRef("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    console.log({game:inputGame.current.value})
+  const addReview =(rev)=>{
+    const copyRev= props.list.slice();
+    copyRev.splice(0, 0, rev);
+    props.setList(copyRev);
   };
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      postData("http://localhost:4000/mylist/" + name, {
+        User:name,
+        Game: inputGame.current.value,
+      });
+      addReview({game: inputGame.current.value})
+    };
 
   return (
     <div>
@@ -160,6 +170,7 @@ export function List(props) {
         </div>})}</div>
     </div>
   );
+}
 
 export  function Comments(props) {
   const { user } = useAuth0();
