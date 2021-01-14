@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import CommentSection from '../components/comment-section'
+import { getData} from "../function/getdata";
+import CreatePost from "../HomeComponent/CreatePost";
+
 const postprova = [
   {
     id:'mklmKkflkm',
@@ -23,7 +26,8 @@ export default function SeePost() {
   const [allPost, setAllPost] = useState([]);
 
   useEffect(() => {
-    setAllPost(postprova);
+    getData("http://localhost:4000/post",setAllPost)
+ 
   }, []);
 
   const Postmapper = (props) => {
@@ -48,21 +52,22 @@ export default function SeePost() {
 
   return (
     <div>
+         <CreatePost posts={allPost} setAll={setAllPost}/>
       <Postmapper posts={allPost} />
     </div>
   );
 }
 
 export function PostLayout(props) {
-  const { from, text, img, comment, id } = props.post;
+  const { from, text, img, comments, id } = props.post;
   return (
     <div className="borderbox m-10"> 
       <div className="p-10">
         <h3 className="title">{from}</h3>
         <div className='box-text-post'><p className='text-p'>{text}</p>{" "}</div>
       </div>
-      <img className='img-post' src={img} alt="post" style={{ width: "100%", }}/>
-      <CommentSection comment={comment} id={id} allPost={props.allPost} setAllPost={props.setAllPost}/>
+      {img && <img className='img-post' src={img} alt="post" style={{ width: "100%", }}/>}
+      <CommentSection comment={comments} id={id} allPost={props.allPost} setAllPost={props.setAllPost}/>
     </div>
   );
 }

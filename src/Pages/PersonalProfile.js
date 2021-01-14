@@ -1,47 +1,41 @@
-import React, { useEffect, useState ,useRef} from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import getData from "../function/getdata"
+import { getData, postData, patchData } from "../function/getdata";
 
-const data = {
-  name: "Daniele Bellagente",
-  img:
-    "https://images.unsplash.com/photo-1511529048424-b3adbbb2ef04?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-  review: [
-    {
-      game: "Minecraft",
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-      game: "Age of Empires II",
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-      game: "Nba 2k19",
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-  ],
-};
 export default function PersonalProfile() {
   const [section, setSection] = useState("review");
   const [review, setReview] = useState([]);
+  const [list, setList] = useState([]);
   const { user } = useAuth0();
-  const { name } = user;
-  
+  const { name , picture} = user;
   useEffect(() => {
-    getData("http://localhost:4000/myrev/"+name,setReview)
+
+    getData("http://localhost:4000/myrev/" + name, setReview);
+
+  }, []);
+
+
+  useEffect(() => {
+    getData("http://localhost:4000/mylist/"+name,setList)
     
     
   }, []);
+
+
+  useEffect(() => {
+
+   console.log(review);
+
+  }, [review]);
+ 
+
   const Switch = () => {
     switch (section) {
       case "review":
         return <Review review={review} setReview={setReview} />;
 
       case "list":
-        return <List />;
+        return <List list={list} setList={setList} />;
 
       case "calendar":
         return <Calendar />;
@@ -54,8 +48,8 @@ export default function PersonalProfile() {
   return (
     <div className="center">
       <div className="borderbox flex">
-        <img src={data.img} alt="profile" className="miniimg m-10"></img>
-        <h3 className="title">{data.name}</h3>
+        <img src={picture} alt="profile" className="miniimg m-10"></img>
+        <h3 className="title">{name}</h3>
       </div>
       <button
         onClick={() => {
@@ -85,41 +79,173 @@ export default function PersonalProfile() {
   );
 }
 
-export function Review(props) {
 
-  const inputGame=useRef("");
-  const inputRev=useRef("");
+
+//sezione delle review personali
+
+export function Review(props) {
+  const inputGame = useRef("");
+  const inputRev = useRef("");
+  
+  const { user } = useAuth0();
+  const { name } = user;
+
+const addReview =(rev)=>{
+  const copyRev= props.review.slice();
+  copyRev.splice(0, 0, rev);
+  props.setReview(copyRev);
+};
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   
-      console.log({game:inputGame.current.value, text:inputRev.current.value})
-
-      
+    postData("http://localhost:4000/myrev/" + name, {
+      User:name,
+      Game: inputGame.current.value,
+      Review: inputRev.current.value,
+      Comments: "",
+    });
+    addReview({game: inputGame.current.value, text:inputRev.current.value, comments:[]})
   };
   return (
     <div>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <p className="title">What are you playing?</p>
           <label>Game:</label>
-          <input type="text" placeholder="Game" ref={inputGame}/>
+          <input type="text" placeholder="Game" ref={inputGame} />
           <label>Review:</label>
           <input type="text" placeholder="Review" ref={inputRev} />
           <button onClick={handleSubmit}>Post</button>
         </form>
       </div>
-      <div>{props.review.map((rec,i)=>{
+      <div>
+        {props.review.map((rec, i) => {
+          return (
+            <div className="borderbox m-10" key={i}>
+              <h3>{rec.game}</h3>
+              <p>{rec.text}</p>
+              <Comments comment={rec.comments} id={i} allPost={props.review} setAllPost={props.setReview}/>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+
+export function List(props) {
+  const { user } = useAuth0();
+  const { name } = user;
+  const inputGame = useRef("");
+
+  const addReview =(rev)=>{
+    const copyRev= props.list.slice();
+    copyRev.splice(0, 0, rev);
+    props.setList(copyRev);
+  };
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      postData("http://localhost:4000/mylist/" + name, {
+        User:name,
+        Game: inputGame.current.value,
+      });
+      addReview({game: inputGame.current.value})
+    };
+
+  return (
+    <div>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <p className="title">What are you wishing for?</p>
+          <label>Game:</label>
+          <input type="text" placeholder="Game" ref={inputGame}/>
+          <button onClick={handleSubmit}>Add</button>
+        </form>
+      </div>
+      <div>{props.list.map((rec,i)=>{
         return <div className="borderbox m-10" key={i}>
           <h3>{rec.game}</h3>
-          <p>{rec.text}</p>
         </div>})}</div>
     </div>
   );
 }
-export function List() {
-  return <div>List</div>;
+
+export  function Comments(props) {
+  const { user } = useAuth0();
+  const { name } = user;
+  const [comment, setComment] = useState("");
+  const [visible, setVisible] = useState(false);
+  
+  
+  const postComment = (rev, comment) => {
+    
+    patchData("http://localhost:4000/myrev/" + name, {
+      
+          id: rev.id,
+          fields: {
+            User: name,
+            Game: rev.game,
+            Review: rev.text,
+            Comments: comment
+          }
+        })
+  };
+
+
+  
+  const addComment = (e) => {
+    e.preventDefault();
+    const post = props.allPost.slice();
+    post[props.id].comments.push({ from: name, text: comment });
+    props.setAllPost(post);
+    postComment(props.allPost[props.id],JSON.stringify(props.allPost[props.id].comments))
+  };
+
+  return (
+    <div className="p-10">
+      <button className='button-comment'
+        onClick={() => {
+          setVisible(!visible);
+        }}
+      >
+        Comment
+      </button>
+      {visible ? (
+        <div>
+          {props.comment.map((comm, id) => {
+            return (
+              <div key={id}>
+                <h3 className='utente-comment'>{comm.from}</h3>
+                <p className='text-comment'>{comm.text}</p>
+              </div>
+            );
+          })}
+          <form onSubmit={addComment}>
+            <input className='box-comment'
+              type="text"
+              placeholder="Comment"
+              onChange={(e) => {
+                setComment(e.target.value);
+              }}
+            />
+            <button className='button-send' onClick={addComment}>Send</button>
+          </form>
+        </div>
+      ) : (
+        <div />
+      )}
+    </div>
+  );
 }
+
+
+
+
+
+
+
 export function Calendar() {
   return <div>Calendar</div>;
 }

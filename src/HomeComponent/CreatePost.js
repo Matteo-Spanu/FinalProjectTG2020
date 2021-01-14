@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { postData } from "../function/getdata";
 
 export default function CreatePost(props){
     const [mod, setMod] = useState(true);
+   
 return(
 <section className='box-create-content'>
     <button className='button-post' onClick={()=>{setMod(true)}}>Post</button>
     <button className='button-review' onClick={()=>{setMod(false)}}>Review</button>
-    {mod? <Post/>:<Recensione/>}
+    {mod? <Post posts={props.posts} setAll={props.setAll}/>:<Recensione/>}
 </section>
 
 )
@@ -15,15 +17,41 @@ return(
 
 }
 
-function Post(){
+function Post(props){
     const { user } = useAuth0();
-  const { name } = user;
+const inPost= useRef("")
+
+const { name } = user;
+
+const addPost =(post)=>{
+    const copyPost= props.posts.slice();
+    copyPost.splice(0, 0, post);
+    props.setAll(copyPost);
+  };
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      let comm= []
+      postData("http://localhost:4000/post", {
+        User:name,
+        Img: "",
+        Post: inPost.current.value,
+        Comments: JSON.stringify(comm),
+      });
+      addPost({from: name, text:inPost.current.value, comments:[], type:"post", img:""})
+    };
+
+
+ 
     return(<div className='create-contenet'>
         <form>
         <p className='title'>Ehi {name}! </p>
             <input className='button-type'
             type='text'
-            placeholder='Some news to share?' />
+            placeholder='Some news to share?' 
+            ref={inPost}
+             />
+            <button onClick={handleSubmit}>Post</button>
         </form>
     </div>)
 }

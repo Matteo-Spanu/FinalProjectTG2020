@@ -15,6 +15,7 @@ import "./App.css";
 const App = () => {
   const { isLoading, isAuthenticated } = useAuth0();
 
+
   if (isLoading) {
     return <Loading />;
   }
