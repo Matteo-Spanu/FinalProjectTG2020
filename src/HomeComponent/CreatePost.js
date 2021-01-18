@@ -7,15 +7,18 @@ export default function CreatePost(props){
    
 return(
 <section className='box-create-content'>
-    <button className='button-post' onClick={()=>{setMod(true)}}>Post</button>
-    <button className='button-review' onClick={()=>{setMod(false)}}>Review</button>
+    <div className='grid-create-content'>
+        <div className='item-create-content'>
+            <button className='button-post' onClick={()=>{setMod(true)}}>Post</button>
+        </div>
+        <div className='item-create-content'>
+            <button className='button-review' onClick={()=>{setMod(false)}}>Review</button>
+        </div>
+    </div>
     {mod? <Post posts={props.posts} setAll={props.setAll}/>:<Recensione/>}
 </section>
 
-)
-
-
-}
+)}
 
 function Post(props){
     const { user } = useAuth0();
@@ -61,6 +64,7 @@ function Recensione(){
     <div className='create-contenet'> 
         <form className='content-review'>
             <p className='title'>What are you playing?</p>
+            
             <div className='box'>
             <label className='button-create-review-game'>Game:</label>
             <input className='button-create-review' type='text' placeholder='Game'/>

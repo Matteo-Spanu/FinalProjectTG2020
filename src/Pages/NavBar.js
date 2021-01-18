@@ -12,13 +12,21 @@ export default function NavBar() {
   return (
     <nav>
       {/* <p>player1: {name}</p> */}
-          <h1 className='logo'>CoinOp</h1>
-        <div className='menu'>
-          <div className='button-label'><Link className='label' to='/'>Home</Link></div>
-          <div className='button-label'><Link className='label'  to='/profile'>Profile</Link></div>
-          <LogoutButton text='Game Over'/>
-      </div>
-{cookie && <CookieBanner switch={()=> setCookie(false) } />}
+      <section className='box-navbar'>
+
+        <div className='grid-navbar'>
+            <h1 className='logo'>CoinOp</h1>
+          </div>
+
+          <div className='grid-navbar-m'>
+            {/* <div className='menu'> */}
+              <div className='button-label'><Link className='label' to='/'>Home</Link></div>
+              <div className='button-label'><Link className='label'  to='/profile'>Profile</Link></div>
+              <LogoutButton text='Game Over'/>
+            {/* </div> */}
+          </div>
+        </section>
+        {cookie && <CookieBanner switch={()=> setCookie(false) } />}
       <div className='box-chat'>
         <div className='button-chat'><Link className='label-chat'  to='/msg'>Chat...</Link></div>
       </div>

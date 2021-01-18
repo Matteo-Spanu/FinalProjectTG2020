@@ -11,29 +11,53 @@ nav{
   width: 100%;
 }
 
-.menu{ 
-  padding: 5px;
-  display: flex;
-  justify-content: flex-end ;
-  height: 30px;
-  }
+.box-navbar{
 
-  
-.logo{
-display: inline-block;
-float: left;
-font-size:1.3em;
-margin-right: 20px!Important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
 }
+
+.grid-navbar{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+
+}
+.grid-navbar-m{
+  
+  display: grid;
+  width: 50%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  justify-self: end;
+
+}
+
+.logo{
+  display: inline-block;
+  float: left;
+  font-size:1.3em;
+  margin-right: 20px!Important;
+  }
+  
+
+/* .menu{ 
+  display: grid;
+  padding: 5px;
+  /* display: flex;
+  justify-content: flex-end ; 
+  height: 30px;
+  } */
 
 
 .button-label{
-  margin: 0 20px;
+  /* margin: 0 20px; */
   border:1px solid #7DFAA2;
-  width: 150px;
+  /* width: 150px; */
   height: 26px;
   border-radius: 6px;
-  display: flex;
+  display: grid;
 }
 
 .button-label:hover{
@@ -59,11 +83,11 @@ color: black;
 background-color: #FD0953;
 font-size: 0.7em;
 border-radius: 6px;
-width: 150px;
+/* width: 150px; */
 height: 26px;
 font-weight: bold;
 border: none;
-margin: 0 20px;
+/* margin: 0 20px; */
 }
 
 .button-logout:hover{
@@ -155,16 +179,24 @@ margin: 0 20px;
 border: 2px solid #709AF8;
 border-radius: 6px;
 padding: 10px;
-margin: 10px;
-
 }
 
+.grid-create-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.item-create-content{
+  display: grid;
+}
+
+
 .button-post{
-  width: 49%;
+  display: grid;
   background-color: #BF6EC7;
   border-radius: 3px;
   border: none;
-  margin-right: 10px;
   font-size: 0.8em;
   font-weight: bold;
 }
@@ -175,7 +207,7 @@ margin: 10px;
 }
 
 .button-review{
-  width:49%;
+  display: grid;
   background-color: #ED7199;
   border-radius: 3px;
   border: none;
@@ -195,21 +227,26 @@ margin: 10px;
 }
 
 .box{
+margin-top: 30px;
 border: 1px solid  #7DFAA2;
-height: 80px;
+height: 70px;
 border-radius: 6px;
+display: flex;
 }
 
 .button-create-review-game{
-  padding: 10px;
+  margin-top: 22px;
+  padding-left: 10px;
   color: #ED7199;
   font-size: 0.9em;
   font-weight: bold;
   margin-right: 10px;
+  border-radius: 6px;
 }
 
 .button-create-review{
-  margin-right: 20px;
+  margin-top: 22px;
+  margin-right: 5px;
   background-color: white;
   border-radius: 3px;
   color: black;
@@ -217,7 +254,7 @@ border-radius: 6px;
   padding-left: 10px;
   font-size: 0.9em;
   height: 22px;
-  width: 30%;
+  width: 34%;
 
 } 
 
@@ -240,10 +277,11 @@ border-radius: 6px;
 .borderbox {
   border: 2px solid #bf6ec7;
   margin-top: 60px!Important;
+  border-radius: 9px;
 }
 
 .m-10 {
-  margin: 10px;
+  margin: 0px;
   border-radius: 6px;
 
 }
@@ -274,8 +312,6 @@ border-radius: 6px;
 }
 
 .line {
-  margin-left: 10px;
-  margin-right: 10px;
   margin-top: 40px;
   margin-bottom: -20px;
   border-color: #7dfaa2;
@@ -341,7 +377,6 @@ display: flex;
 }
 
 .box-sidebar{
-
   padding: 0 10px;
   max-height: 70vh;
 }
@@ -495,3 +530,90 @@ border-radius: 9px;
   margin-top: "250px";
 } */
 
+
+
+/* PERSONAL PROFILE */
+
+.box-title-profile{ 
+  margin-top:11px;
+  margin-left: 10px;
+  border-radius: 6px; 
+}
+
+.miniimg{
+ width: 15%;
+ height: 15%;
+padding: 5px;
+border-radius: 6px;
+
+}
+
+.title-title{
+  font-size: 1em;
+  color: #7DFAA2;
+  border-radius: 6px;
+}
+
+.box-profile-content{
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+ 
+
+.grid-profile-content{
+display: grid;
+padding: 5px;
+}
+
+.button-profile-r{
+  border: none;
+  border-radius: 3px;
+  background-color: #ED7199;
+  height: 20px;
+}
+
+.button-profile-d{
+  border: none;
+  border-radius: 3px;
+  background-color: #BF6EC7;
+  height: 20px;
+}
+
+.button-profile-c{
+  border: none;
+  border-radius: 3px;
+  background-color: #709AF8;
+  height: 20px;
+}
+
+.info-button{
+  background-color: transparent;
+  justify-self: start;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.button-share-post{
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 22px;
+  align-items: center;
+  background-color:#7DFAA2 ;
+  color: black;
+  font-size: 0.8em;
+  font-weight: bold;
+  border-radius: 3px;
+  border: none;
+  float: right;
+  height: 22px;
+}
+
+.title-game{
+  color:#709AF8 ;
+  font-size: 0.8em;
+  padding-top: 8px;
+  padding-left: 10px;
+  border-radius: 6px;
+}
