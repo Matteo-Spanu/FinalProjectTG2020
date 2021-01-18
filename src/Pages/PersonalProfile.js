@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { getData, postData, patchData } from "../function/getdata";
+import { getData, postData, patchData, deleteData } from "../function/getdata";
 
 export default function PersonalProfile() {
   const [section, setSection] = useState("review");
@@ -16,7 +16,7 @@ export default function PersonalProfile() {
 
 
   useEffect(() => {
-    getData("http://localhost:4000/mylist/"+name,setList)
+    getData("http://localhost:4000/mylist/"+ name, setList)
     
     
   }, []);
@@ -139,21 +139,38 @@ export function List(props) {
   const { name } = user;
   const inputGame = useRef("");
 
-  const addReview =(rev)=>{
-    const copyRev= props.list.slice();
-    copyRev.splice(0, 0, rev);
-    props.setList(copyRev);
+  const addList =(rev)=>{
+    const copyList= props.list.slice();
+    copyList.splice(0, 0, rev);
+    props.setList(copyList);
   };
+
+  const deleteList =(id)=>{
+    const copyList= props.list.slice();
+    const newList = copyList.filter((rec)=> {return rec.id !== id});
+    props.setList(newList);
+  };
+
+
   
     const handleSubmit = (e) => {
       e.preventDefault();
       postData("http://localhost:4000/mylist/" + name, {
-        User:name,
+        User: name,
         Game: inputGame.current.value,
       });
-      addReview({game: inputGame.current.value})
+      addList({game: inputGame.current.value})
     };
 
+    const handleDelete = (id) => {
+
+      deleteData("http://localhost:4000/mylist/" + name, {
+        id: id,
+      });
+      deleteList(id)
+    };
+
+    
   return (
     <div>
       <div>
@@ -167,8 +184,9 @@ export function List(props) {
       <div>{props.list.map((rec,i)=>{
         return <div className="borderbox m-10" key={i}>
           <h3>{rec.game}</h3>
+          <button onClick={()=>handleDelete(rec.id)}>Delete</button>
         </div>})}</div>
-    </div>
+      </div>
   );
 }
 
