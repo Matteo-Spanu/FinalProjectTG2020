@@ -55,7 +55,7 @@ const addPost =(post)=>{
             placeholder='Some news to share?' 
             ref={inPost}
              />
-            <button onClick={handleSubmit}>Post</button>
+            <button className='button-create-post' onClick={handleSubmit}>Post</button>
         </form>
     </div>)
 }
@@ -97,7 +97,7 @@ function Recensione(props){
 
             <label className='button-create-review-game'>Review:</label>
                 <input className='button-create-review' type='text' placeholder='Review' ref={inRev} />
-                <button onClick={handleSubmit}>Post</button>
+                <button className='button-share-post'onClick={handleSubmit}>Post</button>
             </div>
         </form>
     </div>)
