@@ -44,34 +44,38 @@ export default function PersonalProfile() {
         return <Review />;
     }
   };
-
+  
   return (
     <div className="center">
       <div className="borderbox flex">
         <img src={picture} alt="profile" className="miniimg m-10"></img>
-        <h3 className="title">{name}</h3>
+        <div className='box-title-profile'>
+          <h3 className="title-title">{name}</h3>
+          
+          </div>
       </div>
-      <button
-        onClick={() => {
-          setSection("review");
-        }}
-      >
-        Recensioni
-      </button>
-      <button
-        onClick={() => {
-          setSection("list");
-        }}
-      >
-        Lista desideri
-      </button>
-      <button
-        onClick={() => {
-          setSection("calendar");
-        }}
-      >
-        Calendario
-      </button>
+
+      <div className='box-profile-content'>
+        <div className='grid-profile-content'>
+        <button className='button-profile-r' onClick={() => { setSection("review");}}>
+          <p className='info-button'>Recensioni</p> 
+        </button>
+        </div>
+
+        <div className='grid-profile-content'>
+        <button className='button-profile-d' onClick={() => {setSection("list");}}>
+        <p className='info-button'>Lista desideri</p> 
+        </button>
+        </div>
+        
+        <div className='grid-profile-content'>
+        <button className='button-profile-c' onClick={() => { setSection("calendar");}}>
+        <p className='info-button'>Calendario</p> 
+        </button>
+        </div>
+
+      </div>
+
       <div>
         <Switch />
       </div>
@@ -108,22 +112,31 @@ const addReview =(rev)=>{
   };
   return (
     <div>
-      <div>
-        <form onSubmit={handleSubmit} >
+
+      <div className='create-contenet'>
+        <form className='content-review' onSubmit={handleSubmit} >
           <p className="title">What are you playing?</p>
-          <label>Game:</label>
-          <input type="text" placeholder="Game" ref={inputGame} />
-          <label>Review:</label>
-          <input type="text" placeholder="Review" ref={inputRev} />
-          <button onClick={handleSubmit}>Post</button>
+            <div className='box'>
+              <label className='button-create-review-game' >Game:</label>
+              <input className='button-create-review' type="text" placeholder="Game" ref={inputGame} />
+              
+              <label className='button-create-review-game' >Review:</label>
+              <input className='button-create-review' type="text" placeholder="Review" ref={inputRev} />
+              
+              <button className='button-share-post' onClick={handleSubmit}>Post</button>
+            </div>
         </form>
       </div>
+
+
       <div>
         {props.review.map((rec, i) => {
           return (
             <div className="borderbox m-10" key={i}>
-              <h3>{rec.game}</h3>
-              <p>{rec.text}</p>
+              <div className='p-10'>
+              <h3 className='title'>{rec.game}</h3>
+              <p className='text-p'>{rec.text}</p>
+              </div>
               <Comments comment={rec.comments} id={i} allPost={props.review} setAllPost={props.setReview}/>
             </div>
           );
@@ -173,17 +186,19 @@ export function List(props) {
     
   return (
     <div>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <p className="title">What are you wishing for?</p>
-          <label>Game:</label>
-          <input type="text" placeholder="Game" ref={inputGame}/>
-          <button onClick={handleSubmit}>Add</button>
+      <div className='create-contenet'>
+        <form className='content-review' onSubmit={handleSubmit}>
+            <p className="title">What are you wishing for?</p>
+        <div className='box'>
+            <label className='button-create-review-game'>Game:</label>
+            <input  className='button-create-review' type="text" placeholder="Game" ref={inputGame}/>
+            <button className='button-share-post' onClick={handleSubmit}>Add</button>
+            </div>
         </form>
       </div>
       <div>{props.list.map((rec,i)=>{
         return <div className="borderbox m-10" key={i}>
-          <h3>{rec.game}</h3>
+         <h3 className="title-game">{rec.game}</h3>
           <button onClick={()=>handleDelete(rec.id)}>Delete</button>
         </div>})}</div>
       </div>

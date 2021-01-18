@@ -30,10 +30,10 @@ export default function NewConversationModal( props ) {
     }
 
     return (
-        < >
+        <section className='box-new-module-consersation'>
         <Modal.Header closeButton>Create Conversation</Modal.Header>
         <Modal.Body>
-            <Form onSubmit={handleSubmit}>
+            <Form  className='new-module-consersation' onSubmit={handleSubmit}>
              {contacts.map(contact => (
                 <Form.Group controlId={contact.id} key={contact.id}>
                     <Form.Check
@@ -52,7 +52,7 @@ export default function NewConversationModal( props ) {
             <Button type="submit">Create</Button>
             </Form>
          </Modal.Body> 
-     </ >
+     </section >
  )
     
 }
