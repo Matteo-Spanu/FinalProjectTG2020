@@ -22,6 +22,7 @@ export default function NavBar() {
             {/* <div className='menu'> */}
               <div className='button-label'><Link className='label' to='/'>Home</Link></div>
               <div className='button-label'><Link className='label'  to='/profile'>Profile</Link></div>
+              <div className='button-label'><Link className='label'  to='/appointment'>Appointment</Link></div>
               <LogoutButton text='Game Over'/>
             {/* </div> */}
           </div>

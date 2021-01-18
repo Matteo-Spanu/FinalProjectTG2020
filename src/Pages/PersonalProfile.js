@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { getData, postData, patchData } from "../function/getdata";
+import { getData, postData, patchData, deleteData } from "../function/getdata";
 
 export default function PersonalProfile() {
   const [section, setSection] = useState("review");
   const [review, setReview] = useState([]);
   const [list, setList] = useState([]);
+  const [calendar, setCalendar] = useState([]);
   const { user } = useAuth0();
   const { name , picture} = user;
   useEffect(() => {
@@ -16,17 +17,16 @@ export default function PersonalProfile() {
 
 
   useEffect(() => {
-    getData("http://localhost:4000/mylist/"+name,setList)
+    getData("http://localhost:4000/mylist/"+ name, setList)
     
     
   }, []);
 
-
   useEffect(() => {
-
-   console.log(review);
-
-  }, [review]);
+    getData("http://localhost:4000/myevent/"+ name, setCalendar)
+    
+    
+  }, []);
  
 
   const Switch = () => {
@@ -38,7 +38,7 @@ export default function PersonalProfile() {
         return <List list={list} setList={setList} />;
 
       case "calendar":
-        return <Calendar />;
+        return <Calendar calendar={calendar} setCalendar={setCalendar}/>;
 
       default:
         return <Review />;
@@ -152,21 +152,38 @@ export function List(props) {
   const { name } = user;
   const inputGame = useRef("");
 
-  const addReview =(rev)=>{
-    const copyRev= props.list.slice();
-    copyRev.splice(0, 0, rev);
-    props.setList(copyRev);
+  const addList =(rev)=>{
+    const copyList= props.list.slice();
+    copyList.splice(0, 0, rev);
+    props.setList(copyList);
   };
+
+  const deleteList =(id)=>{
+    const copyList= props.list.slice();
+    const newList = copyList.filter((rec)=> {return rec.id !== id});
+    props.setList(newList);
+  };
+
+
   
     const handleSubmit = (e) => {
       e.preventDefault();
       postData("http://localhost:4000/mylist/" + name, {
-        User:name,
+        User: name,
         Game: inputGame.current.value,
       });
-      addReview({game: inputGame.current.value})
+      addList({game: inputGame.current.value})
     };
 
+    const handleDelete = (id) => {
+
+      deleteData("http://localhost:4000/mylist/" + name, {
+        id: id,
+      });
+      deleteList(id)
+    };
+
+    
   return (
     <div>
       <div className='create-contenet'>
@@ -181,9 +198,10 @@ export function List(props) {
       </div>
       <div>{props.list.map((rec,i)=>{
         return <div className="borderbox m-10" key={i}>
-          <h3 className="title-game">{rec.game}</h3>
+         <h3 className="title-game">{rec.game}</h3>
+          <button onClick={()=>handleDelete(rec.id)}>Delete</button>
         </div>})}</div>
-    </div>
+      </div>
   );
 }
 
@@ -261,6 +279,74 @@ export  function Comments(props) {
 
 
 
-export function Calendar() {
-  return <div>Calendar</div>;
+export function Calendar(props) {
+  
+  const { user } = useAuth0();
+  const { name } = user;
+  const inputGame = useRef("");
+  const inputDate = useRef("");
+
+  const addList =(rev)=>{
+    const copyList= props.calendar.slice();
+    copyList.splice(0, 0, rev);
+    props.setCalendar(copyList);
+  };
+
+  const deleteList =(id)=>{
+    const copyList= props.calendar.slice();
+    const newList = copyList.filter((rec)=> {return rec.id !== id});
+    props.setCalendar(newList);
+  };
+
+
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      postData("http://localhost:4000/myevent/" + name, {
+        User: name,
+        Dates: inputDate.current.value,
+        Partecipants: JSON.stringify([]),
+        Game: inputGame.current.value
+       
+       
+      });
+      addList({
+        user: name,
+        game: inputGame.current.value,
+        date: inputDate.current.value,
+        partecipants: []
+      })
+    };
+
+    const handleDelete = (id) => {
+
+      deleteData("http://localhost:4000/myevent/" + name, {
+        id: id,
+      });
+      deleteList(id)
+    };
+
+    
+  return (
+    <div>
+      <div className='create-contenet'>
+        <form className='content-review' onSubmit={handleSubmit}>
+            <p className="title">Create new appointment</p>
+        <div className='box'>
+            <label className='button-create-review-game'>Game:</label>
+            <input  className='button-create-review' type="text" placeholder="Game" ref={inputGame}/>
+            <label className='button-create-review-game'>Date:</label>
+            <input  className='button-create-review' type="datetime-local" placeholder="date" ref={inputDate}/>
+            <button className='button-share-post' onClick={handleSubmit}>Add</button>
+            </div>
+        </form>
+      </div>
+      <div>{props.calendar.map((ev,i)=>{
+        return <div className="borderbox m-10" key={i}>
+         <h3 className="title-game">{ev.game}</h3>
+         <p>{ev.date}</p>
+          <button onClick={()=>handleDelete(ev.id)}>Delete</button>
+        </div>})}</div>
+      </div>
+  );
 }
