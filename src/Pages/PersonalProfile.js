@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { getData, postData, patchData, deleteData } from "../function/getdata";
+import { getData, postData, patchData, deleteData, getGame } from "../function/getdata";
 
 export default function PersonalProfile() {
   const [section, setSection] = useState("review");
@@ -168,12 +168,15 @@ export function List(props) {
   
     const handleSubmit = (e) => {
       e.preventDefault();
+      getGame("http://localhost:4000/gamedetail", {name: inputGame.current.value})
+      .then((res) => {
       postData("http://localhost:4000/mylist/" + name, {
         User: name,
-        Game: inputGame.current.value,
+        Game: res.name,
+        Img:  res.url
       });
-      addList({game: inputGame.current.value})
-    };
+      addList({game: res.name, url: res.url})
+    })};
 
     const handleDelete = (id) => {
 
@@ -199,6 +202,7 @@ export function List(props) {
       <div>{props.list.map((rec,i)=>{
         return <div className="borderbox m-10" key={i}>
          <h3 className="title-game">{rec.game}</h3>
+         <img src={rec.url} alt="coverGame" />
           <button onClick={()=>handleDelete(rec.id)}>Delete</button>
         </div>})}</div>
       </div>
