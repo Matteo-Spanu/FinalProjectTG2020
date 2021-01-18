@@ -6,17 +6,19 @@
 /* NAVBAR */
 
 nav{
-  display: flex;
   background-color: transparent;
   position: fixed;
   width: 100%;
-
-  /* backgroundColor:'black',color:'white',position: "fixed",
-    left: "0",
-    top: "0",
-    textAlign: "center",width: "100%", */
 }
 
+.menu{ 
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end ;
+  height: 30px;
+  }
+
+  
 .logo{
 display: inline-block;
 float: left;
@@ -24,34 +26,27 @@ font-size:1.3em;
 margin-right: 20px!Important;
 }
 
-.logo:hover{
-
-}
-
-.menu{
-text-align: right;
-height: 30px;
-}
 
 .button-label{
   margin: 0 20px;
-  background-color: #7DFAA2;
-  width: 100px;
-  height: 18px;
-  display: inline-block;
-  border-radius: 3px;
+  border:1px solid #7DFAA2;
+  width: 150px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
 }
 
 .button-label:hover{
   background-color: #BF6EC7;
+  border: none;
 }
 
 .label{
-color: black;
+color: white;
 font-size: 0.7em;
 font-weight: bold;
-display: flex;
 padding-left: 10px;
+padding-top: 3px;
 }
 
 .label:hover{
@@ -63,9 +58,9 @@ color: black;
 .button-logout{
 background-color: #FD0953;
 font-size: 0.7em;
-border-radius: 3px;
-width: 100px;
-height: 18px;
+border-radius: 6px;
+width: 150px;
+height: 26px;
 font-weight: bold;
 border: none;
 margin: 0 20px;
@@ -74,8 +69,6 @@ margin: 0 20px;
 .button-logout:hover{
   background-color: black;
 }
-
-
 
 /* TASTO CHAT */
 
@@ -339,3 +332,166 @@ border-radius: 6px;
 .text-footer{
   font-size: 0.6em;
 }
+
+/* CHAT...*/
+
+.grid-chat{
+height: 89vh;
+display: flex;
+}
+
+.box-sidebar{
+
+  padding: 0 10px;
+  max-height: 70vh;
+}
+
+.button-sidebar{
+display: flex;
+}
+
+.button-sidebar-consersations{
+  border: transparent!Important;
+  background-color: #BF6EC7!important;
+  color: white!Important;
+  font-size: 0.7em!important;
+  font-weight: bold!Important;
+  margin: 0 10px 10px 0; 
+}
+.button-sidebar-consersations:hover{
+  background-color: #7DFAA2!important;
+  color: black!Important;
+}
+
+.button-sider-contacts{
+  font-size: 0.8em!important;
+  border: transparent!Important;
+  background-color: #ED7199!important;
+  color: white!Important;
+  font-size: 0.7em!important;
+  font-weight: bold!Important;
+  margin: 0;
+}
+
+.button-sider-contacts:hover{
+  background-color: #7DFAA2!important;
+  color: black!Important;
+}
+
+
+.nav-tabs .nav-link {
+  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+/* CHAT... PARTE SX INFO CONTATTI E CHAT*/
+
+.box-info-cc{
+  margin-top: 20px;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  color: white!important;
+  padding: 5px;
+  background-color: transparent!Important;
+  border: 1px solid #7DFAA2!Important ;
+  font-size: 0.8em!Important;
+  font-weight: bold;
+  margin-top: 5px;
+  border-radius: 6px;
+  height: 42px;
+}
+
+.chat-info-id{
+  margin-top: 20px;
+}
+
+.info-id{
+  color: #7DFAA2;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.box-button-new{
+  margin-top: 60px;
+}
+
+.btn-primary {
+  color: black!Important;
+  background-color: #7DFAA2!Important;
+  border-color: transparent!Important;
+  font-size: 0.8em!Important;
+  font-weight: bold!Important;
+  width: 100%;
+
+}
+
+
+.box-new-module-consersation{
+  border: 2px solid #bf6ec7;
+border-radius: 9px;
+}
+
+.new-module-consersation{
+  font-size: 0.8em;
+}
+
+.modal-header{
+  font-size: 0.8em;
+}
+
+/* CHAT... BOX-CHAT*/
+.chat-box{
+  border: 2px solid #bf6ec7;
+  width: 800px;
+  margin: 0 20px;
+  border-radius: 9px;
+  height: 82vh;
+  overflow: auto;
+}
+
+.chat-message{ 
+  padding:10px;
+  background-color: transparent;
+}
+
+
+.message-from{
+  color: black;
+  background-color:#e4dede;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.8em;
+}
+
+
+.message-me {
+  background-color: #7DFAA2!important;
+}
+
+.text-name-send{
+  color: white;
+  font-size: 0.6em;
+}
+
+.box-send{
+  padding: 10px;
+}
+/* 
+.grid-box-send{
+  border: 2px solid green;
+  display: flex;
+}
+
+.info{
+  border: 5px solid red;
+}
+
+.prova{
+  border: 2px solid green;
+  margin-top: "250px";
+} */
+
