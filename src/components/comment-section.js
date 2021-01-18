@@ -9,6 +9,8 @@ export default function CommentSection(props) {
   const [comment, setComment] = useState("");
   const [visible, setVisible] = useState(false);
 
+
+
   const postComment = (p, comment) => {
     
     patchData("http://localhost:4000/post", {
@@ -35,6 +37,7 @@ export default function CommentSection(props) {
     post[i].comments.push({ from: name, text: comment });
     props.setAllPost(post);
     postComment(props.allPost[i],JSON.stringify(props.allPost[i].comments))
+    
   };
 
   return (
