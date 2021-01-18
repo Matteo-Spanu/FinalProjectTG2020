@@ -167,6 +167,7 @@ export function List(props) {
       <div>{props.list.map((rec,i)=>{
         return <div className="borderbox m-10" key={i}>
           <h3>{rec.game}</h3>
+          
         </div>})}</div>
     </div>
   );
