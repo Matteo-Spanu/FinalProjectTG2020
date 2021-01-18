@@ -5,7 +5,6 @@ export default function NavBar() {
     <footer 
       style={{
         width: "100%",
-        backgroundColor: "#f890e7",
         color: "white",
         textAlign: "center",
       }}
