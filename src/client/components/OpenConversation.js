@@ -45,16 +45,17 @@ export default function OpenConversation() {
             )
           })}
         </div>
-      </div>
-      <Form onSubmit={handleSubmit} className='grid-box-send'>
-        <Form.Group className="box-send">
+
+
+        <Form onSubmit={handleSubmit} className='box-text-send' >
+        <Form.Group>
           <InputGroup>
-            <Form.Control
+            <Form.Control className=''
               as="textarea"
               required
               value={text}
               onChange={e => setText(e.target.value)}
-              style={{ height: '45px', resize: 'none' }}
+              style={{ height: '45px', resize: 'none', }}
             />
             <InputGroup.Append>
               <Button className='button-send-chat' type="submit">Send</Button> 
@@ -62,6 +63,11 @@ export default function OpenConversation() {
           </InputGroup>
         </Form.Group>
       </Form>
+
+      </div>
+          
+      
+      
     </div>
   )
 }

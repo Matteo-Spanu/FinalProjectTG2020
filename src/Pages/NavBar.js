@@ -15,7 +15,7 @@ export default function NavBar() {
       <section className='box-navbar'>
 
         <div className='grid-navbar'>
-            <h1 className='logo'>CoinOp</h1>
+        <h1><Link className='logo'to='/'>CoinOp</Link></h1>
           </div>
 
           <div className='grid-navbar-m'>
@@ -28,7 +28,7 @@ export default function NavBar() {
         </section>
         {cookie && <CookieBanner switch={()=> setCookie(false) } />}
       <div className='box-chat'>
-        <div className='button-chat'><Link className='label-chat'  to='/msg'>Chat...</Link></div>
+        <Link className='button-chat'  to='/msg'>Chat...</Link>
       </div>
     </nav>
     
