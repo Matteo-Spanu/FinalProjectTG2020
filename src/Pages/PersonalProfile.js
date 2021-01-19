@@ -7,6 +7,7 @@ export default function PersonalProfile() {
   const [review, setReview] = useState([]);
   const [list, setList] = useState([]);
   const [calendar, setCalendar] = useState([]);
+  const [favourite, setFavourite] = useState([]);
   const { user } = useAuth0();
   const { name , picture} = user;
   useEffect(() => {
@@ -27,7 +28,14 @@ export default function PersonalProfile() {
     
     
   }, []);
+
+  useEffect(() => {
+    getData("http://localhost:4000/favourite/"+ name, setFavourite)
+    
+    
+  }, []);
  
+
 
   const Switch = () => {
     switch (section) {
@@ -39,6 +47,9 @@ export default function PersonalProfile() {
 
       case "calendar":
         return <Calendar calendar={calendar} setCalendar={setCalendar}/>;
+      
+      case "favourite":
+        return <Favourite favourite={favourite} setFavourite={setFavourite} />;
 
       default:
         return <Review />;
@@ -57,7 +68,7 @@ export default function PersonalProfile() {
 
       <div className='box-profile-content'>
         <div className='grid-profile-content'>
-        <button className='button-profile-r' onClick={() => { setSection("review");}}>
+        <button className='button-profile-r' onClick={() => {setSection("review");}}>
           <p className='info-button'>Recensioni</p> 
         </button>
         </div>
@@ -69,8 +80,14 @@ export default function PersonalProfile() {
         </div>
         
         <div className='grid-profile-content'>
-        <button className='button-profile-c' onClick={() => { setSection("calendar");}}>
+        <button className='button-profile-c' onClick={() => {setSection("calendar");}}>
         <p className='info-button'>Calendario</p> 
+        </button>
+        </div>
+
+        <div className='grid-profile-content'>
+        <button className='button-profile-d' onClick={() => {setSection("favourite");}}>
+        <p className='info-button'>Giochi preferiti</p> 
         </button>
         </div>
 
@@ -350,6 +367,69 @@ export function Calendar(props) {
          <h3 className="title-game">{ev.game}</h3>
          <p>{ev.date}</p>
           <button onClick={()=>handleDelete(ev.id)}>Delete</button>
+        </div>})}</div>
+      </div>
+  );
+}
+
+
+export function Favourite(props) {
+  const { user } = useAuth0();
+  const { name } = user;
+  const inputGame = useRef("");
+
+  const addList =(rev)=>{
+    const copyFav = props.favourite.slice();
+    copyFav.splice(0, 0, rev);
+    props.setFavourite(copyFav);
+  };
+
+  const deleteList =(id)=>{
+    const copyFav = props.favourite.slice();
+    const newList = copyFav.filter((rec)=> {return rec.id !== id});
+    props.setFavourite(newList);
+  };
+
+
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      getGame("http://localhost:4000/gamedetail", {name: inputGame.current.value})
+      .then((res) => {
+      postData("http://localhost:4000/favourite/" + name, {
+        User: name,
+        Game: res.name || inputGame.current.value,
+        Img:  res.url
+      });
+      addList({game: res.name || inputGame.current.value, url: res.url})
+    })};
+
+    const handleDelete = (id) => {
+
+      deleteData("http://localhost:4000/favourite/" + name, {
+        id: id,
+      });
+      deleteList(id)
+    };
+
+    
+  return (
+    <div>
+      <div className='create-contenet'>
+        <form className='content-review' onSubmit={handleSubmit}>
+            <p className="title">Create your own list of favourite games!</p>
+        <div className='box'>
+            <label className='button-create-review-game'>Game:</label>
+            <input  className='button-create-review' type="text" placeholder="Game" ref={inputGame}/>
+            <button className='button-share-post' onClick={handleSubmit}>Add</button>
+            </div>
+        </form>
+      </div>
+      <div>{props.favourite.map((rec,i)=>{
+        return <div className="borderbox m-10" key={i}>
+         <h3 className="title-game">{rec.game}</h3>
+         <img src={rec.url} alt="coverGame" />
+          <button onClick={()=>handleDelete(rec.id)}>Delete</button>
         </div>})}</div>
       </div>
   );
