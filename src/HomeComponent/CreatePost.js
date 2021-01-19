@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { postData } from "../function/getdata";
-
+import Uploader from "../function/uploader";
 export default function CreatePost(props){
     const [mod, setMod] = useState(true);
    
@@ -57,6 +57,7 @@ const addPost =(post)=>{
              />
             <button className='button-create-post' onClick={handleSubmit}>Post</button>
         </form>
+        <Uploader/>
     </div>)
 }
 
