@@ -8,9 +8,10 @@ export default function Home() {
   const { name } = user;
 
   return (
-    <div className='center'>
- 
-      <SeePost />
-    </div>
+
+      <div className='center'>
+        <SeePost />
+      </div>
+    
   );
 }
