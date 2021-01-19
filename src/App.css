@@ -194,7 +194,7 @@ max-width: 600px;
 
 
 .box-create-content{
-  margin-top: 50px;
+margin-top: 50px;
 border: 2px solid #709AF8;
 border-radius: 6px;
 padding: 10px;
@@ -209,7 +209,6 @@ grid-gap: 10px;
 .item-create-content{
 display: grid;
 }
-
 
 .button-post{
 display: grid;
@@ -244,12 +243,11 @@ transition: 0.3s ease;
 .create-contenet{
 margin-top: 30px;
 margin-bottom: 30px;
-
 }
 
 .box{
 margin-top: 30px;
-border: 2px solid  #7DFAA2;
+border: 2px solid #7DFAA2;
 height: 70px;
 border-radius: 6px;
 display: flex;
@@ -295,6 +293,29 @@ font-weight: bold;
   transition: 0.3s ease;
 }
 
+.grid-button-create-content{
+display: flex;
+margin: auto;
+margin-top: 20px;
+}
+
+
+.button-select-file{
+border:1px solid red;
+border-radius: 6px;
+width: 50%;
+background-color:#efefef;
+color: black;
+font-size: 0.9em;
+font-weight: bold;
+margin-right: 5px;
+margin-left: 5px;
+height: 26px;
+
+
+
+}
+
 /* SCRIVI POST */
 
 .button-type{
@@ -312,7 +333,6 @@ margin-top: 10px;
 
 /* POST PUBBLICATI */
 .borderbox {
-  display: flex;
 border: 2px solid #bf6ec7;
 margin-top: 60px!Important;
 border-radius: 9px;
@@ -369,6 +389,7 @@ width: 100%;
 font-size:0.9em;
 font-weight: bold;
 }
+
 .button-comment:hover{
 background-color:  #709AF8;
 transition: 0.3s ease;
@@ -383,7 +404,6 @@ font-size: 0.8em;
 width: 75%;
 margin-right: 10px;
 }
-
 
 .button-send {
 border: 2px solid #7DFAA2;
@@ -454,7 +474,7 @@ transition: 0.3s ease;
 }
 
 .button-new-consersations{
-  font-size: 0.9em!important;
+font-size: 0.9em!important;
 }
 
 .nav-tabs .nav-link {
@@ -466,7 +486,7 @@ border-top-right-radius: 6px;
 /* CHAT... PARTE SX INFO CONTATTI E CHAT*/
 
 .box-info-cc{
-  margin-top: 20px;
+margin-top: 20px;
 }
 
 .list-group-item {
@@ -506,7 +526,6 @@ font-weight: bold!Important;
 width: 100%;
 
 }
-
 
 .box-new-module-consersation{
 border: 2px solid #bf6ec7;
@@ -551,9 +570,7 @@ background-color:#e4dede;
 border-radius: 6px;
 border: none;
 font-size: 0.8em;
-
 }
-
 
 .message-me {
 background-color: #7DFAA2!important;
@@ -566,6 +583,13 @@ font-size: 0.6em;
 
 
 /* PERSONAL PROFILE */
+
+.borderbox-profile{
+  border: 2px solid #BF6EC7;
+  padding: 5px;
+  border-radius: 6px;
+  display: flex;
+}
 
 .box-title-profile{ 
 margin-top:11px;
@@ -590,7 +614,7 @@ border-radius: 6px;
 .box-profile-content{
 margin-top: 30px;
 display: grid;
-grid-template-columns: 1fr 1fr 1fr;
+grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 
@@ -630,6 +654,18 @@ height: 26px;
 }
 
 .button-profile-c:hover{
+background-color:#7DFAA2 ;
+transition: 0.3s ease;
+}
+
+.button-profile-p{
+border: none;
+border-radius: 3px;
+background-color: #ececec;
+height: 26px;
+}
+
+.button-profile-p:hover{
 background-color:#7DFAA2 ;
 transition: 0.3s ease;
 }
