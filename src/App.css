@@ -94,16 +94,21 @@ transition: 0.3s ease;
 /* COOKIE */
 
 .banner-cookie{
-border: 2px solid #7DFAA2;
+/* border: 2px solid #7DFAA2; */
+background-color: #BF6EC7;
 border-radius: 6px;
-margin: 10px;
-width: 500px;
+margin:auto;
+width: 760px;
+height: 150px;
 margin-top: 109px;
 }
 
 .text-cookie{
+color: black;
+background-color:transparent;
 font-size: 0.8em;
 margin: 10px;
+padding-top: 10px;
 }
 
 .img-cookie{
@@ -311,7 +316,6 @@ font-weight: bold;
 margin-right: 5px;
 margin-left: 5px;
 height: 26px;
-
 
 
 }

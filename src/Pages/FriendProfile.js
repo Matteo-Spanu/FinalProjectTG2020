@@ -55,7 +55,7 @@ export default function PersonalProfile() {
 
   return (
     <div className="center">
-      <div className="borderbox flex">
+      <div className="borderbox-profile">
         <img src={picture} alt="profile" className="miniimg m-10"></img>
         <div className="box-title-profile">
           <h3 className="title-title">{namefr}</h3>
@@ -98,7 +98,7 @@ export default function PersonalProfile() {
 
         <div className="grid-profile-content">
           <button
-            className="button-profile-d"
+            className="button-profile-p"
             onClick={() => {
               setSection("favourite");
             }}
@@ -153,18 +153,15 @@ export function List(props) {
  
 
   return (
-    <div>
-      <div>
+      <div className='lista-desideri-grid'>
         {props.list.map((rec, i) => {
-          return (
-            <div className="borderbox m-10" key={i}>
+          return (<div className="border-grid" key={i}>
               <h3 className="title-game">{rec.game}</h3>
-              <img src={rec.url} alt="coverGame" />
+              <img className='img-desideri' src={rec.url} alt="coverGame" />
             </div>
           );
         })}
       </div>
-    </div>
   );
 }
 
@@ -309,12 +306,12 @@ export function Favourite(props) {
   return (
     <div>
      
-      <div>
+      <div className='lista-desideri-grid'>
         {props.favourite.map((rec, i) => {
           return (
-            <div className="borderbox m-10" key={i}>
+            <div className="border-grid" key={i}>
               <h3 className="title-game">{rec.game}</h3>
-              <img src={rec.url} alt="coverGame" />
+              <img className='img-desideri' src={rec.url} alt="coverGame" />
             </div>
           );
         })}
