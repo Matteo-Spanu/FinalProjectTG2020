@@ -9,6 +9,7 @@ import NavBar from "./Pages/NavBar";
 import Footer from "./Pages/Footer";
 import PersonalProfile from "./Pages/PersonalProfile";
 import Appointment from "./Pages/Appointment";
+import FriendProfile from "./Pages/FriendProfile";
 import ProtectedRoute from "./auth/protected-route";
 import Chat from "./client/components/App";
 import "./App.css";
@@ -30,6 +31,7 @@ const App = () => {
           <ProtectedRoute path="/profile"  component={PersonalProfile} />
           <ProtectedRoute path="/msg"  component={Chat} />
           <ProtectedRoute path="/appointment"  component={Appointment} />
+          <ProtectedRoute path="/friend/:namefr"  component={FriendProfile} />
           <Route path="/login" component={LogIn} />
           <Route path="/loading" component={Loading} />
         </Switch>
