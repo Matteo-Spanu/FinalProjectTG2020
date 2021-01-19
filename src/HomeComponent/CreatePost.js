@@ -102,11 +102,12 @@ const  handleImageUpload = () => {
           placeholder="Some news to share?"
           ref={inPost}
         />
-         <div >
-        <input type="file"/>
-      </div>
+        <div className='grid-button-create-content'>
+          <input className='button-select-file'type="file"/>
+          <button type="button" className="button-select-file" onClick={handleImageUpload}>Submit</button>
+          {/* <button type="button" className="button-create-post" onClick={handleImageUpload}>Submit</button> */}
+        </div>
 
-      <button type="button" className="button-create-post" onClick={handleImageUpload}>Submit</button>
       </form>
     </div>
   );

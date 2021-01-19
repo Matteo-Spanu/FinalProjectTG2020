@@ -58,7 +58,7 @@ export default function PersonalProfile() {
   
   return (
     <div className="center">
-      <div className="borderbox flex">
+      <div className="borderbox-profile">
         <img src={picture} alt="profile" className="miniimg m-10"></img>
         <div className='box-title-profile'>
           <h3 className="title-title">{name}</h3>
@@ -86,7 +86,7 @@ export default function PersonalProfile() {
         </div>
 
         <div className='grid-profile-content'>
-        <button className='button-profile-d' onClick={() => {setSection("favourite");}}>
+        <button className='button-profile-p' onClick={() => {setSection("favourite");}}>
         <p className='info-button'>Giochi preferiti</p> 
         </button>
         </div>
