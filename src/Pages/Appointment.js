@@ -93,7 +93,7 @@ export function Calendar(props) {
           return <div className="borderbox m-10" key={i}>
            <h3 className="title-game">{ev.user} wants to play {ev.game}</h3>
            <p>on: {ev.date}</p>
-           <p>Joined: {ev.partecipants.join(', ')}</p>
+           {ev.partecipants.length>0? <p>Joined: {ev.partecipants.join(', ')}</p>:<p>Join first</p>}
             <button onClick={()=>addPartecipant(ev, i)}>Join</button>
           </div>})}</div>
         </div>

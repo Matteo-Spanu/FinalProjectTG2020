@@ -349,6 +349,7 @@ export function Calendar(props) {
         return <div className="borderbox m-10" key={i}>
          <h3 className="title-game">{ev.game}</h3>
          <p>{ev.date}</p>
+         {ev.partecipants.length>0? <p>with: {ev.partecipants.join(", ")}</p>: <p>no one has joined yet</p>}
           <button onClick={()=>handleDelete(ev.id)}>Delete</button>
         </div>})}</div>
       </div>
