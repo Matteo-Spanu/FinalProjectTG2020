@@ -199,13 +199,15 @@ export function List(props) {
             </div>
         </form>
       </div>
-      <div>{props.list.map((rec,i)=>{
-        return <div className="borderbox m-10" key={i}>
-         <h3 className="title-game">{rec.game}</h3>
-         <img src={rec.url} alt="coverGame" />
-          <button onClick={()=>handleDelete(rec.id)}>Delete</button>
-        </div>})}</div>
+      
+      <div className='lista-desideri-grid'>{props.list.map((rec,i)=>{
+        return <div className="border-grid" key={i}>
+          <h3 className="title-game">{rec.game}</h3>
+            <img className='img-desideri'src={rec.url} alt="coverGame" />
+            <button className='button-delete-game' onClick={()=>handleDelete(rec.id)}>Delete</button>
+        </div>})}
       </div>
+    </div>
   );
 }
 
