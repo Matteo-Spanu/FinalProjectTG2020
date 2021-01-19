@@ -45,3 +45,15 @@ export  async function getData(url, setValue) {
     let response = await request.json();
     return response;
   }
+
+  export  async function getGame(url, obj) {
+    let request = await fetch(url, 
+     { method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(obj),
+  }); 
+    let response = await request.json();
+    return response;
+  }

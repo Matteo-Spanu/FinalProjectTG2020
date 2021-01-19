@@ -67,7 +67,7 @@ export function Calendar(props) {
       const patchPar = (ev) => {
         patchData("http://localhost:4000/allevent", {
             id:ev.id,
-        fields:{User: name,
+        fields:{User: ev.user,
           Dates: ev.date,
           Partecipants: JSON.stringify(ev.partecipants),
           Game: ev.game}
