@@ -185,7 +185,7 @@ export function List(props) {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      getGame("http://localhost:4000/gamedetail", {name: inputGame.current.value})
+      getGame("http://localhost:4000/gamedetail", {name: inputGame.current.value.toLowerCase().replaceAll(" ", "-")})
       .then((res) => {
       postData("http://localhost:4000/mylist/" + name, {
         User: name,
