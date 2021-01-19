@@ -172,10 +172,10 @@ export function List(props) {
       .then((res) => {
       postData("http://localhost:4000/mylist/" + name, {
         User: name,
-        Game: res.name,
+        Game: res.name || inputGame.current.value,
         Img:  res.url
       });
-      addList({game: res.name, url: res.url})
+      addList({game: res.name || inputGame.current.value, url: res.url})
     })};
 
     const handleDelete = (id) => {
