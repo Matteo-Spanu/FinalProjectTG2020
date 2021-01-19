@@ -74,7 +74,7 @@ export function PostLayout(props) {
 }
 
 export function ReviewLayout(props) {
-  const { from, text, game, comment, id } = props.review;
+  const { from, text, game, comments, id } = props.review;
   return (
     <div className="borderbox m-10 ">
      <div className="p-10">
@@ -83,7 +83,7 @@ export function ReviewLayout(props) {
       </h3>
       <p className='text-p'>{text}</p>
       </div>
-      <CommentSection comment={comment} id={id} allPost={props.allPost} setAllPost={props.setAllPost} />
+      <CommentSection comment={comments} id={id} allPost={props.allPost} setAllPost={props.setAllPost} />
     </div>
   );
 }
