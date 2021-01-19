@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CommentSection from '../components/comment-section'
 import { getData} from "../function/getdata";
 import CreatePost from "../HomeComponent/CreatePost";
+import {Link}  from "react-router-dom"
 
 const postprova = [
   {
@@ -63,7 +64,7 @@ export function PostLayout(props) {
   return (
     <div className="borderbox m-10"> 
       <div className="p-10">
-        <h3 className="title">{from}</h3>
+        <h3 className="title" > <Link to={'/friend/'+from}>{from}</Link></h3>
         <div className='box-text-post'><p className='text-p'>{text}</p>{" "}</div>
       </div>
       {img && <img className='img-post' src={img} alt="post" style={{ width: "100%", }}/>}
