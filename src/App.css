@@ -14,23 +14,19 @@ width: 100%;
 .box-navbar{
 display: grid;
 grid-template-columns: 1fr 1fr;
-
-
 }
 
 .grid-navbar{
-display: grid;
+/* display: grid;
 grid-template-columns: 1fr 1fr 1fr 1fr;
-grid-gap: 10px;
-
+grid-gap: 10px; */
 }
-.grid-navbar-m{
-display: grid;
-width: 50%;
-grid-template-columns: 1fr 1fr 1fr;
-grid-gap: 10px;
-justify-self: end;
 
+.grid-navbar-m{
+justify-self: end;
+margin: 0 20px;
+float: right;
+grid-gap:10px;
 }
 
 .logo{
@@ -48,45 +44,109 @@ color: #7DFAA2!important;
 }
 
 .button-label{
-border:1px solid #7DFAA2;
+border: none;
+background-color:#7DFAA2 ;
 height: 26px;
 border-radius: 6px;
-display: grid;
 margin-top: 10px;
-}
-
-.button-label:hover{
-background-color: #BF6EC7;
-border: none;
+margin-right: 10px;
+margin-left: 10px;
+width: 135px;
+font-size: 0.9em;
+font-weight: bold;
+text-align: center;
 }
 
 .label{
-color: white;
-font-size: 0.7em;
-font-weight: bold;
-padding-left: 10px;
-padding-top: 3px;
+color: black;
 }
 
 .label:hover{
 text-decoration: none;
 color: black;
+transition: 0.3s ease;
+}
+
+.button-label:hover{
+background-color: #BF6EC7;
+border: none;
+transition: 0.3s ease;
+
 }
 
 .button-logout{
 background-color: #FD0953;
-font-size: 0.7em;
+font-size: 0.9em;
 border-radius: 6px;
 height: 26px;
 font-weight: bold;
 border: none;
-margin-right: 10px;
-margin-top: 10px;
+margin-left: 10px;
+margin-top: 11px!Important;
+width: 135px;
 }
 
 .button-logout:hover{
 background-color: black;
+transition: 0.3s ease;
+} 
+
+/* COOKIE */
+
+.banner-cookie{
+border: 2px solid #7DFAA2;
+border-radius: 6px;
+margin: 10px;
+width: 500px;
+margin-top: 109px;
 }
+
+.text-cookie{
+font-size: 0.8em;
+margin: 10px;
+}
+
+.img-cookie{
+margin-top: 10px;
+margin-bottom: 10px;
+width: 100px;
+height: auto;
+margin-left: 45%;
+
+}
+
+.buttuon-cookie-r{
+margin: 10px;
+border: none;
+border-radius: 5px;
+background-color: #ececec;
+color: black;
+font-size: 0.9em;
+width: 100px;
+font-weight: bold;
+}
+
+.buttuon-cookie-r:hover{
+opacity: 0.8;
+transition: 0.3s ease;
+}
+
+.buttuon-cookie-a{
+margin: 10px;
+background-color: #7DFAA2;
+border-radius: 5px;
+color: black;
+border: none;
+font-size: 0.9em;
+width: 100px;
+font-weight: bold;
+}
+
+.buttuon-cookie-a:hover{
+opacity: 0.8;
+transition: 0.3s ease;
+}
+
 
 /* TASTO CHAT */
 
@@ -94,14 +154,14 @@ background-color: black;
 margin-right: 20px;
 width: 15%;
 margin-left: 10px;
-margin-top: 91vh;
+margin-top: 88vh;
 position: fixed;
 height: 26px;
 background-color: #BF6EC7;
 border-radius: 3px;
 align-items: center;
-color: white;
-font-size: 0.7em;
+color: black;
+font-size: 0.9em;
 font-weight: bold;
 padding: 5px;
 }
@@ -110,8 +170,8 @@ padding: 5px;
 background-color: #7DFAA2;
 text-decoration: none;
 color: black;
+transition: 0.3s ease;
 }
-
 
 /* BODY */
 
@@ -165,6 +225,7 @@ max-width: 600px;
 
 
 .box-create-content{
+  margin-top: 50px;
 border: 2px solid #709AF8;
 border-radius: 6px;
 padding: 10px;
@@ -186,13 +247,14 @@ display: grid;
 background-color: #BF6EC7;
 border-radius: 3px;
 border: none;
-font-size: 0.8em;
+font-size: 0.9em;
 font-weight: bold;
+color: black;
 }
 
 .button-post:hover{
 background-color: #7DFAA2;
-color: black;
+transition: 0.3s ease;
 }
 
 .button-review{
@@ -200,13 +262,14 @@ display: grid;
 background-color: #ED7199;
 border-radius: 3px;
 border: none;
-font-size: 0.8em;
+font-size: 0.9em;
 font-weight: bold;
+color: black;
 }
 
 .button-review:hover{
 background-color: #7DFAA2;
-color: black;
+transition: 0.3s ease;
 }
 
 .create-contenet{
@@ -253,13 +316,14 @@ color: black;
 border: none;
 border-radius: 3px;
 width: 100%;
-height: 22px;
-font-size: 0.8em;
+height: 26px;
+font-size: 0.9em;
 font-weight: bold;
 }
 
 .button-create-post:hover{
   background-color: #BF6EC7;
+  transition: 0.3s ease;
 }
 
 /* SCRIVI POST */
@@ -272,7 +336,7 @@ width: 100%;
 height: 80px;
 color: black;
 padding-left: 10px;
-font-size: 0.8em;
+font-size: 0.9em;
 margin-top: 10px;
 
 }
@@ -287,7 +351,6 @@ border-radius: 9px;
 .m-10 {
 margin: 0px;
 border-radius: 6px;
-
 }
 
 .p-10 {
@@ -297,13 +360,13 @@ border-radius: 6px;
 
 .title {
 color: #7dfaa2;
-font-size: 0.8em;
+font-size: 1em;
 font-weight: bold;
 }
 
 .text-p{
 margin: 0px;
-font-size: 0.8em;
+font-size: 0.9em;
 padding: 3px;
 color: white;
 }
@@ -311,7 +374,6 @@ color: white;
 .img-post{
 padding: 10px;
 border-radius: 9px;
-
 }
 
 .line {
@@ -319,6 +381,7 @@ margin-top: 40px;
 margin-bottom: -20px;
 border-color: #7dfaa2;
 }
+
 .miniimg {
 height: 150px;
 width: 150px;
@@ -328,48 +391,52 @@ width: 150px;
 /* COMMENTI DEI POST */
 
 .button-comment{
-  border-radius: 3px;
-  margin-bottom: 10px;
-  border: none;
-  border: 2px solid #709AF8;
-  width: 100%;
-  font-size: 0.7em;
-  font-weight: bold;
+border-radius: 3px;
+margin-bottom: 10px;
+border: none;
+border: 2px solid #709AF8;
+width: 100%;
+font-size:0.9em;
+font-weight: bold;
+}
+.button-comment:hover{
+background-color:  #709AF8;
+transition: 0.3s ease;
 }
 
 .box-comment{
-  border: 2px solid #ED7199;
-  border-radius: 3px;
-  /* background-color: white; */
-  color: white;
-  font-size: 0.8em;
-  width: 75%;
-  margin-right: 10px;
+border: 2px solid #ED7199;
+border-radius: 3px;
+/* background-color: white; */
+color: white;
+font-size: 0.8em;
+width: 75%;
+margin-right: 10px;
 }
 
 
 .button-send {
-  border: 2px solid #7DFAA2;
-  border-radius: 3px;
-  width: 23%;
-  font-size: 0.8em;
-  font-weight: bold;
+border: 2px solid #7DFAA2;
+border-radius: 3px;
+width: 23%;
+font-size: 0.8em;
+font-weight: bold;
 }
 
 .utente-comment{
-  color: #7dfaa2;
-  font-size: 0.7em;
-  font-weight: normal;
+color: #7dfaa2;
+font-size: 0.9em;
+font-weight: normal;
 }
 
 .text-comment{
-  color: white;
-  font-size: 0.7em;
-  margin-top: -5px;
+color: white;
+font-size: 0.9em;
+margin-top: -5px;
 }
 
 .text-footer{
-  font-size: 0.6em;
+font-size: 0.6em;
 }
 
 /* CHAT...*/
@@ -380,8 +447,8 @@ display: flex;
 }
 
 .box-sidebar{
-  padding: 0 10px;
-  max-height: 70vh;
+padding: 0 10px;
+max-height: 70vh;
 }
 
 .button-sidebar{
@@ -391,31 +458,34 @@ display: flex;
 .button-sidebar-consersations{
 border: transparent!Important;
 background-color: #BF6EC7!important;
-color: white!Important;
-font-size: 0.7em!important;
+color: black!Important;
+font-size: 0.8em!important;
 font-weight: bold!Important;
 margin: 0 10px 10px 0; 
 }
+
 .button-sidebar-consersations:hover{
 background-color: #7DFAA2!important;
-color: black!Important;
+transition: 0.3s ease;
 }
 
 .button-sider-contacts{
-  font-size: 0.8em!important;
-  border: transparent!Important;
-  background-color: #ED7199!important;
-  color: white!Important;
-  font-size: 0.7em!important;
-  font-weight: bold!Important;
-  margin: 0;
+border: transparent!Important;
+background-color: #ED7199!important;
+color: black!Important;
+font-size: 0.8em!important;
+font-weight: bold!Important;
+margin: 0;
 }
 
 .button-sider-contacts:hover{
 background-color: #7DFAA2!important;
-color: black!Important;
+transition: 0.3s ease;
 }
 
+.button-new-consersations{
+  font-size: 0.9em!important;
+}
 
 .nav-tabs .nav-link {
 border-radius: 6px;
@@ -563,28 +633,43 @@ padding: 5px;
 border: none;
 border-radius: 3px;
 background-color: #ED7199;
-height: 20px;
+height: 26px;
+}
+
+.button-profile-r:hover{
+background-color:#7DFAA2 ;
 }
 
 .button-profile-d{
 border: none;
 border-radius: 3px;
 background-color: #BF6EC7;
-height: 20px;
+height: 26px;
+}
+
+.button-profile-d:hover{
+background-color:#7DFAA2 ;
+transition: 0.3s ease;
 }
 
 .button-profile-c{
 border: none;
 border-radius: 3px;
 background-color: #709AF8;
-height: 20px;
+height: 26px;
+}
+
+.button-profile-c:hover{
+background-color:#7DFAA2 ;
+transition: 0.3s ease;
 }
 
 .info-button{
 background-color: transparent;
 justify-self: start;
 font-weight: bold;
-font-size: 0.8em;
+font-size: 0.9em;
+color: black;
 }
 
 .button-share-post{
@@ -595,7 +680,7 @@ margin-top: 22px;
 align-items: center;
 background-color:#7DFAA2 ;
 color: black;
-font-size: 0.8em;
+font-size: 0.9em;
 font-weight: bold;
 border-radius: 3px;
 border: none;

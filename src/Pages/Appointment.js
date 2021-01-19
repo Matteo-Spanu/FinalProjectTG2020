@@ -76,7 +76,7 @@ export function Calendar(props) {
   
       
     return (
-      <div>
+      <div className='box-create-content'>
         <div className='create-contenet'>
           <form className='content-review' onSubmit={handleSubmit}>
               <p className="title">Create new appointment</p>

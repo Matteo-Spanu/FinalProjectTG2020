@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import LogoutButton from '../components/logout-button';
 import '../App.css';
+import prova from '../image/prova.png';
 
 export default function NavBar() {
   const { user } = useAuth0();
@@ -19,12 +20,12 @@ export default function NavBar() {
           </div>
 
           <div className='grid-navbar-m'>
-            {/* <div className='menu'> */}
-              <div className='button-label'><Link className='label' to='/'>Home</Link></div>
-              <div className='button-label'><Link className='label'  to='/profile'>Profile</Link></div>
-              <div className='button-label'><Link className='label'  to='/appointment'>Appointment</Link></div>
-              <LogoutButton text='Game Over'/>
-            {/* </div> */}
+          
+              <button className='button-label'><Link className='label' to='/'>Home</Link></button>
+              <button className='button-label'><Link className='label'  to='/profile'>Profile</Link></button>
+              <button className='button-label'><Link className='label'  to='/appointment'>Appointment</Link></button>
+              <LogoutButton className='button-logout' text='Game Over'/>
+            
           </div>
         </section>
         {cookie && <CookieBanner switch={()=> setCookie(false) } />}
@@ -39,10 +40,14 @@ export default function NavBar() {
 
  function CookieBanner(props){
 return(
-<div>
-<p>vuoi i biscotti?</p>
-  <button onClick={()=>{props.switch()}}> Accept all </button>
-  <button onClick={()=>{props.switch()}}> Refuse </button>
+<div className='banner-cookie'>
+<p className='text-cookie'>By continuing to browse this site, you agree to the use of 
+cookies to identify your session and to remember your login after you close the browser (authentication cookies).</p>
+
+  <button  className='buttuon-cookie-r'onClick={()=>{props.switch()}}> Refuse </button>
+  <button  className='buttuon-cookie-a'onClick={()=>{props.switch()}}> Accept all </button>
+  {/* <div><img src={prova} alt className='img-cookie'/></div> */}
 </div>
+
 )
 }
