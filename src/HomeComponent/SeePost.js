@@ -79,7 +79,7 @@ export function ReviewLayout(props) {
     <div className="borderbox m-10 ">
      <div className="p-10">
       <h3 className="title">
-        {from} reviewed {game}
+      <Link to={'/friend/'+from}>{from}</Link> reviewed {game}
       </h3>
       <p className='text-p'>{text}</p>
       </div>

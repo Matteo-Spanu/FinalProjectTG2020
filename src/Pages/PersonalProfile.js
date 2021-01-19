@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { getData, postData, patchData, deleteData, getGame } from "../function/getdata";
-
+const defaultImg = "https://res.cloudinary.com/ilbrad/image/upload/v1611070783/coinop/retro-arcade-machine-gaming-80s-260nw-1340132216_cfzydc.jpg";
 export default function PersonalProfile() {
   const [section, setSection] = useState("review");
   const [review, setReview] = useState([]);
@@ -185,14 +185,14 @@ export function List(props) {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      getGame("http://localhost:4000/gamedetail", {name: inputGame.current.value})
+      getGame("http://localhost:4000/gamedetail", {name: inputGame.current.value.toLowerCase().replaceAll(" ", "-")})
       .then((res) => {
       postData("http://localhost:4000/mylist/" + name, {
         User: name,
         Game: res.name || inputGame.current.value,
-        Img:  res.url
+        Img:  res.url || defaultImg
       });
-      addList({game: res.name || inputGame.current.value, url: res.url})
+      addList({game: res.name || inputGame.current.value, url: res.url || defaultImg})
     })};
 
     const handleDelete = (id) => {
@@ -397,14 +397,14 @@ export function Favourite(props) {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      getGame("http://localhost:4000/gamedetail", {name: inputGame.current.value})
+      getGame("http://localhost:4000/gamedetail", {name: inputGame.current.value.toLowerCase().replaceAll(" ", "-")})
       .then((res) => {
       postData("http://localhost:4000/favourite/" + name, {
         User: name,
         Game: res.name || inputGame.current.value,
-        Img:  res.url
+        Img:  res.url || defaultImg
       });
-      addList({game: res.name || inputGame.current.value, url: res.url})
+      addList({game: res.name || inputGame.current.value, url: res.url || defaultImg})
     })};
 
     const handleDelete = (id) => {
