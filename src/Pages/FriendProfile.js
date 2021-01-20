@@ -15,8 +15,9 @@ export default function PersonalProfile() {
   const [list, setList] = useState([]);
   const [calendar, setCalendar] = useState([]);
   const [favourite, setFavourite] = useState([]);
+  const [picture, setProfile] = useState("");
   const { user } = useAuth0();
-  const { name, picture } = user;
+  const { name} = user;
   let { namefr } = useParams();
   useEffect(() => {
     getData("http://localhost:4000/myrev/" + namefr, setReview);
@@ -32,6 +33,9 @@ export default function PersonalProfile() {
 
   useEffect(() => {
     getData("http://localhost:4000/favourite/" + namefr, setFavourite);
+  }, []);
+  useEffect(() => {
+    getData("http://localhost:4000/profile/" + namefr, setProfile);
   }, []);
 
   const Switch = () => {
