@@ -52,7 +52,7 @@ export default function NewConversationModal( props ) {
             <Button type="submit">Create</Button>
             </Form>
          </Modal.Body> 
-     </section >
+     </section>
  )
     
 }
