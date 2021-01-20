@@ -6,6 +6,7 @@ export default function Conversations() {
     const { conversations, selectConversationIndex } = useConversations()
     return (
         <ListGroup variant="flush>">
+        <div className='box-prova' >
         {conversations.map((conversation, index) => (
             <ListGroup.Item 
             key={index}
@@ -17,6 +18,7 @@ export default function Conversations() {
                 {conversation.game}
             </ListGroup.Item>
         ))}
+        </div>
     </ListGroup>
     )
 }

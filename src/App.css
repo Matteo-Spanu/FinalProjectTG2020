@@ -520,8 +520,8 @@ background-color: transparent!Important;
 border: 1px solid #7DFAA2!Important ;
 font-size: 0.8em!Important;
 font-weight: bold;
-margin-top: 5px;
-border-radius: 6px;
+margin-top: 10px;
+border-radius: 3px;
 height: 42px;
 }
 
@@ -546,7 +546,6 @@ border-color: transparent!Important;
 font-size: 0.8em!Important;
 font-weight: bold!Important;
 width: 100%;
-
 }
 
 .box-new-module-consersation{
@@ -560,6 +559,13 @@ font-size: 0.8em;
 
 .modal-header{
 font-size: 0.8em;
+}
+
+.box-prova{
+  margin-top: -30px;
+  height: 69.5vh;
+ 
+  scrollbar-color: #7DFAA2;
 }
 
 /* CHAT... BOX-CHAT*/
@@ -897,6 +903,7 @@ padding-bottom: 8px;
 border-radius: 6px;
 font-weight: bold;
 }
+
 .button-join-appointment{
   color: black;
   background-color: #7DFAA2;
