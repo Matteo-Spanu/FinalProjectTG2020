@@ -123,7 +123,7 @@ const addReview =(rev)=>{
       User:name,
       Game: inputGame.current.value,
       Review: inputRev.current.value,
-      Comments: "",
+      Comments: JSON.stringify([]),
     });
     addReview({game: inputGame.current.value, text:inputRev.current.value, comments:[]})
   };
