@@ -79,7 +79,7 @@ export function Calendar(props) {
       <div className='box-create-content'>
         <div className='create-contenet'>
           <form className='content-review' onSubmit={handleSubmit}>
-              <p className="title">Create new appointment</p>
+              <h3 className="categoria-appointment">Create new appointment</h3>
           <div className='box'>
               <label className='button-create-review-game'>Game:</label>
               <input  className='button-create-review' type="text" placeholder="Game" ref={inputGame}/>
@@ -91,12 +91,12 @@ export function Calendar(props) {
         </div>
         
         <div>{props.calendar.map((ev,i)=>{
-          return <div className="borderbox" key={i}>
-                        <h3 className="title-game">{ev.user} wants to play {ev.game}</h3>
+          return <div className="borderbox-appointment" key={i}>
+                        <h3 className="title-appointment">{ev.user} wants to play {ev.game}</h3>
                         
-                  <div className='prova'>
+                  <div className='grid-date'>
                         <p className='info-text-appointment-date'>{ev.date}</p>
-                        {ev.partecipants.length>0? <p className='info-text-appointment'>Joined: {ev.partecipants.join(', ')}</p>:<p>Join first</p>}
+                        {ev.partecipants.length>0? <p className='info-text-appointment'>Joined: {ev.partecipants.join(', ')}</p>:<p className='info-text-appointment-date' >Join first</p>}
                         <button className='button-post-file' onClick={()=>addPartecipant(ev, i)}>Join</button>
                   </div>
                 </div>

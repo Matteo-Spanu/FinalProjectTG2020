@@ -294,11 +294,13 @@ export function Calendar(props) {
     return (
       <div className='box-create-content'>
         <div>{props.calendar.map((ev,i)=>{
-          return <div className="borderbox m-10" key={i}>
-           <h3 className="title-game">{ev.user} wants to play {ev.game}</h3>
-           <p>on: {ev.date}</p>
-           {ev.partecipants.length>0? <p>Joined: {ev.partecipants.join(', ')}</p>:<p>Join first</p>}
-            <button onClick={()=>addPartecipant(ev, i)}>Join</button>
+          return <div className="borderbox-appointment" key={i}>
+           <h3 className="title-appointment">{ev.user} wants to play {ev.game}</h3>
+           <div className='grid-date'>
+            <p className='info-text-appointment-date'>{ev.date}</p>
+            {ev.partecipants.length>0? <p className='info-text-appointment' >Joined: {ev.partecipants.join(', ')}</p>:<p>Join first</p>}
+              <button className='button-join-appointment' onClick={()=>addPartecipant(ev, i)}>Join</button>
+            </div>
           </div>})}</div>
         </div>
     );
@@ -314,8 +316,10 @@ export function Favourite(props) {
         {props.favourite.map((rec, i) => {
           return (
             <div className="border-grid" key={i}>
-              <h3 className="title-game">{rec.game}</h3>
-              <img className='img-desideri' src={rec.url} alt="coverGame" />
+              <h3 className="title-game-desideri-friend">{rec.game}</h3>
+              <div className='provaaa'>
+                <img className='img-desideri' src={rec.url} alt="coverGame" />
+              </div>
             </div>
           );
         })}

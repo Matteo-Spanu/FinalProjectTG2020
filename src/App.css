@@ -813,14 +813,16 @@ opacity: 0.6;
 transition: 0.3s ease;
 }
 
+
 .img-desideri{
 display: flex;
 max-width: 270px;
+max-height: 152px;
 border-radius: 6px;
 }
 
 .title-game-desideri{
-color: #7DFAA2  ;
+color: #7DFAA2;
 font-size: 0.9em;
 padding-top: 8px;
 padding-bottom: 8px;
@@ -829,19 +831,80 @@ font-weight: bold;
 text-align: right;
 }
 
-/* APPOINTMENT */
+/* APPOINTMENT CALENDARIO */
 
-.prova{
-  padding:10px;
-  display: flex;
-  justify-content: space-between;
+.categoria-appointment{
+color:#7DFAA2;
+font-size: 1em;
+font-weight: bold;
+margin-top:-20px;
 }
+
+.borderbox-appointment{
+border: 2px solid #BF6EC7;
+border-radius: 6px;
+margin-top: 20px; 
+}
+
+.grid-date{
+padding:10px;
+display: flex;
+justify-content: space-between;
+}
+
+.title-appointment{
+font-size: 0.9em;
+padding: 10px;
+color: #7DFAA2;
+font-weight: bold;
+background-color: transparent;
+}
+
 .info-text-appointment-date{
-  font-size: 0.9em;
+font-size: 0.875em;
+line-height: 1em;
 }
 
 .info-text-appointment{
+font-size: 0.875em;
+line-height: 1em;
+font-weight: bold;
+border-radius: 6px;
+}
+
+
+.button-delete-appointment{
+color: white;
+font-size: 0.9em;
+font-weight: bold;
+background-color: #FD0953;
+border-radius: 3px;
+width: 40%;
+border: none;
+height: 26px;
+}
+
+.button-delete-appointment:hover{
+opacity: 0.8;
+transition: 0.3s ease;
+  }
+
+.title-game-desideri-friend{
+color: #7DFAA2;
+font-size: 0.9em;
+padding-top: 8px;
+padding-bottom: 8px;
+border-radius: 6px;
+font-weight: bold;
+}
+.button-join-appointment{
+  color: black;
+  background-color: #7DFAA2;
+  width: 42%;
+  border: none;
+  border-radius: 3px;
   font-size: 0.9em;
   font-weight: bold;
-  border-radius: 6px;
+  height: 26px;
+
 }

@@ -368,13 +368,17 @@ export function Calendar(props) {
         </form>
       </div>
       <div>{props.calendar.map((ev,i)=>{
-        return <div className="borderbox m-10" key={i}>
-         <h3 className="title-game">{ev.game}</h3>
-         <p>{ev.date}</p>
-         {ev.partecipants.length>0? <p>with: {ev.partecipants.join(", ")}</p>: <p>no one has joined yet</p>}
-          <button onClick={()=>handleDelete(ev.id)}>Delete</button>
-        </div>})}</div>
+        return <div className="borderbox-appointment" key={i}>
+                  <h3 className="title-appointment">{ev.game}</h3>
+                    <div className='grid-date'>
+                      <p className='info-text-appointment-date'>{ev.date}</p>
+                      {ev.partecipants.length>0? <p className="">with: {ev.partecipants.join(", ")}</p>: 
+                        <p className='info-text-appointment'>no one has joined yet</p>}
+                      <button className='button-delete-appointment' onClick={()=>handleDelete(ev.id)}>Delete</button>
+                     </div>
+                </div>})}
       </div>
+    </div>
   );
 }
 
@@ -439,7 +443,9 @@ export function Favourite(props) {
             <h3 className="title-game-desideri">{rec.game}</h3>
             <button className='button-delete-game' onClick={()=>handleDelete(rec.id)}>X</button>
             </div>
-         <img className='img-desideri'src={rec.url} alt="coverGame" />
+          <div className='provaaa'>
+            <img className='img-desideri'src={rec.url} alt="coverGame" />
+         </div>
         </div>})}</div>
       </div>
       
