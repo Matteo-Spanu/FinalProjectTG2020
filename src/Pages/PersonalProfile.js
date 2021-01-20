@@ -209,19 +209,22 @@ export function List(props) {
       <div className='create-contenet'>
         <form className='content-review' onSubmit={handleSubmit}>
             <p className="title">What are you wishing for?</p>
-        <div className='box'>
-            <label className='button-create-review-game'>Game:</label>
-            <input  className='button-create-review' type="text" placeholder="Game" ref={inputGame}/>
-            <button className='button-share-post' onClick={handleSubmit}>Add</button>
+        <div className='box-share'>
+            <label className='button-create-review-game-profile'>Game:</label>
+            <input  className='button-create-review-profile' type="text" placeholder="Game" ref={inputGame}/>
+            <button className='button-share-post-profile' onClick={handleSubmit}>Add</button>
             </div>
         </form>
       </div>
       
       <div className='lista-desideri-grid'>{props.list.map((rec,i)=>{
         return <div className="border-grid" key={i}>
-          <h3 className="title-game">{rec.game}</h3>
+          <div className='box-title-img'>
+            <h3 className="title-game-desideri">{rec.game}</h3>
+          <button className='button-delete-game' onClick={()=>handleDelete(rec.id)}>X</button>
+            
+          </div>
             <img className='img-desideri'src={rec.url} alt="coverGame" />
-            <button className='button-delete-game' onClick={()=>handleDelete(rec.id)}>Delete</button>
         </div>})}
       </div>
     </div>
@@ -421,19 +424,25 @@ export function Favourite(props) {
       <div className='create-contenet'>
         <form className='content-review' onSubmit={handleSubmit}>
             <p className="title">Create your own list of favourite games!</p>
-        <div className='box'>
-            <label className='button-create-review-game'>Game:</label>
-            <input  className='button-create-review' type="text" placeholder="Game" ref={inputGame}/>
-            <button className='button-share-post' onClick={handleSubmit}>Add</button>
+        <div className='box-share'>
+            <label className='button-create-review-game-profile'>Game:</label>
+            <input  className='button-create-review-profile' type="text" placeholder="Game" ref={inputGame}/>
+            <button className='button-share-post-profile' onClick={handleSubmit}>Add</button>
             </div>
         </form>
       </div>
-      <div>{props.favourite.map((rec,i)=>{
-        return <div className="borderbox m-10" key={i}>
-         <h3 className="title-game">{rec.game}</h3>
-         <img src={rec.url} alt="coverGame" />
-          <button onClick={()=>handleDelete(rec.id)}>Delete</button>
+
+      
+      <div className='lista-desideri-grid'>{props.favourite.map((rec,i)=>{
+        return <div className="border-grid"key={i}>
+          <div className='box-title-img'>
+            <h3 className="title-game-desideri">{rec.game}</h3>
+            <button className='button-delete-game' onClick={()=>handleDelete(rec.id)}>X</button>
+            </div>
+         <img className='img-desideri'src={rec.url} alt="coverGame" />
         </div>})}</div>
       </div>
+      
+
   );
 }

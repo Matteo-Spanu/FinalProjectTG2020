@@ -223,6 +223,7 @@ border: none;
 font-size: 0.9em;
 font-weight: bold;
 color: black;
+height: 26px;
 }
 
 .button-post:hover{
@@ -238,6 +239,7 @@ border: none;
 font-size: 0.9em;
 font-weight: bold;
 color: black;
+height: 26px;
 }
 
 .button-review:hover{
@@ -269,15 +271,15 @@ border-radius: 6px;
 }
 
 .button-create-review{
-margin-top: 22px;
-margin-right: 5px;
+margin-top: 20px;
+margin-right: 7px;
 background-color: white;
 border-radius: 3px;
 color: black;
 border: none;
 padding-left: 10px;
 font-size: 0.9em;
-height: 22px;
+height: 26px;
 width: 34%;
 } 
 
@@ -305,19 +307,34 @@ margin-top: 20px;
 }
 
 
+
 .button-select-file{
-border:1px solid red;
-border-radius: 6px;
+border-radius: 3px;
 width: 50%;
-background-color:#efefef;
 color: black;
 font-size: 0.9em;
 font-weight: bold;
 margin-right: 5px;
 margin-left: 5px;
 height: 26px;
+}
 
+.button-post-file{
+border-radius: 3px;
+width: 50%;
+background-color:#7dfaa2;
+color: black;
+font-size: 0.9em;
+font-weight: bold;
+margin-right: 5px;
+margin-left: 5px;
+height: 26px;
+border: none;
+}
 
+.button-post-file:hover{
+  background-color:#ececec;
+  transition: 0.3s ease;
 }
 
 /* SCRIVI POST */
@@ -392,6 +409,7 @@ border: 2px solid #709AF8;
 width: 100%;
 font-size:0.9em;
 font-weight: bold;
+height: 26px;
 }
 
 .button-comment:hover{
@@ -589,10 +607,10 @@ font-size: 0.6em;
 /* PERSONAL PROFILE */
 
 .borderbox-profile{
-  border: 2px solid #BF6EC7;
-  padding: 5px;
-  border-radius: 6px;
-  display: flex;
+border: 2px solid #BF6EC7;
+padding: 5px;
+border-radius: 6px;
+display: flex;
 }
 
 .box-title-profile{ 
@@ -682,20 +700,70 @@ font-size: 0.9em;
 color: black;
 }
 
-.button-share-post{
+.box-share{
+border: 2px solid #7DFAA2;
 display: flex;
-margin-left: 10px;
-margin-right: 10px;
-margin-top: 22px;
-align-items: center;
-background-color:#7DFAA2 ;
+justify-content:space-between;
+padding: 0 10px;
+align-items:center;
+height: 80px;
+border-radius: 6px;
+margin-top: 40px;
+}
+
+.button-create-review-game-profile{
+color: #ED7199;
+font-size: 0.9em;
+font-weight: bold;
+border-radius: 6px;
+padding-top: 7px;
+}
+
+.button-create-review-profile{
+margin-right: 5px;
+background-color: white;
+border-radius: 3px;
+color: black;
+border: none;
+padding-left: 10px;
+font-size: 0.9em;
+height: 26px;
+width: 40%;
+} 
+
+.button-share-post-profile{
+width: 49%;
+height: 26px;
+background-color: #7DFAA2;
+border: none;
+border-radius: 3px;
 color: black;
 font-size: 0.9em;
 font-weight: bold;
-border-radius: 3px;
+}
+
+.button-share-post-profile:hover{
+transition: 0.3s ease;
+background-color: #BF6EC7;
+}
+
+.button-share-post{
+align-items: center;
+height: 26px;
+background-color: #7DFAA2;
 border: none;
-float: right;
-height: 22px;
+border-radius: 3px;
+color: black;
+font-size: 0.9em;
+font-weight: bold;
+margin-top: 20px;
+margin-right: 5px;
+}
+
+.button-share-post:hover{
+transition: 0.3s ease;
+background-color: #BF6EC7;
+
 }
 
 .title-game{
@@ -722,24 +790,58 @@ margin-top:10px;
 margin-bottom: 10px;
 }
 
+.box-title-img{
+display: flex ;
+justify-content:space-between;
+}
+
+.button-delete-game{
+text-align: center;
+height: 18px;
+width: 30px;
+margin-top: 4px;
+color: white;
+font-size: 0.7em;
+font-weight: bold;
+background-color: #FD0953;
+border-radius: 6px;
+border: none;
+}
+
+.button-delete-game:hover{
+opacity: 0.6;
+transition: 0.3s ease;
+}
+
 .img-desideri{
 display: flex;
 max-width: 270px;
 border-radius: 6px;
 }
 
-.button-delete-game{
-margin-top: 20px;
-height: 26px;
-width: 100%;
-color: white;
+.title-game-desideri{
+color: #7DFAA2  ;
 font-size: 0.9em;
-font-weight: bold;
-border: 1px solid #BF6EC7;
+padding-top: 8px;
+padding-bottom: 8px;
 border-radius: 6px;
+font-weight: bold;
+text-align: right;
 }
 
-.button-delete-game:hover{
-opacity: 0.6;
-transition: 0.3s ease;
+/* APPOINTMENT */
+
+.prova{
+  padding:10px;
+  display: flex;
+  justify-content: space-between;
+}
+.info-text-appointment-date{
+  font-size: 0.9em;
+}
+
+.info-text-appointment{
+  font-size: 0.9em;
+  font-weight: bold;
+  border-radius: 6px;
 }

@@ -89,13 +89,20 @@ export function Calendar(props) {
               </div>
           </form>
         </div>
+        
         <div>{props.calendar.map((ev,i)=>{
-          return <div className="borderbox m-10" key={i}>
-           <h3 className="title-game">{ev.user} wants to play {ev.game}</h3>
-           <p>on: {ev.date}</p>
-           {ev.partecipants.length>0? <p>Joined: {ev.partecipants.join(', ')}</p>:<p>Join first</p>}
-            <button onClick={()=>addPartecipant(ev, i)}>Join</button>
-          </div>})}</div>
+          return <div className="borderbox" key={i}>
+                        <h3 className="title-game">{ev.user} wants to play {ev.game}</h3>
+                        
+                  <div className='prova'>
+                        <p className='info-text-appointment-date'>{ev.date}</p>
+                        {ev.partecipants.length>0? <p className='info-text-appointment'>Joined: {ev.partecipants.join(', ')}</p>:<p>Join first</p>}
+                        <button className='button-post-file' onClick={()=>addPartecipant(ev, i)}>Join</button>
+                  </div>
+                </div>
+              })}
         </div>
+          
+       </div>
     );
   }

@@ -104,7 +104,7 @@ const  handleImageUpload = () => {
         />
         <div className='grid-button-create-content'>
           <input className='button-select-file'type="file"/>
-          <button type="button" className="button-select-file" onClick={handleImageUpload}>Submit</button>
+          <button type="button" className="button-post-file" onClick={handleImageUpload}>Submit</button>
           {/* <button type="button" className="button-create-post" onClick={handleImageUpload}>Submit</button> */}
         </div>
 
