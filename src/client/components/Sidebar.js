@@ -21,14 +21,14 @@ function closeModal() {
   return (
     <div  className="box-sidebar">
       <Tab.Container activeKey={activeKey} onSelect={setActiveKey}>
-        <Nav variant="tabs" className="button-sidebar">
+        {/* <Nav variant="tabs" className="button-sidebar">
           <Nav.Item>
            <div className='cc'> <Nav.Link className='button-sidebar-consersations' eventKey={CONVERSATIONS_KEY}>Conversations</Nav.Link></div>
           </Nav.Item>
           <Nav.Item>
           <div className='cc'><Nav.Link className='button-sider-contacts' eventKey={CONTACTS_KEY}>Contacts</Nav.Link></div>
           </Nav.Item>
-        </Nav>
+        </Nav> */}
         <Tab.Content className="box-info-cc">
           <Tab.Pane eventKey={CONVERSATIONS_KEY}>
             <Conversations />
