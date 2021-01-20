@@ -161,7 +161,7 @@ export function List(props) {
         {props.list.map((rec, i) => {
           return (<div className="border-grid" key={i}>
               <h3 className="title-game">{rec.game}</h3>
-              <img className='img-desideri' src={rec.url} alt="coverGame" />
+              <a href={rec.critic } target="_blank" rel="noreferrer"><img className='img-desideri' src={rec.url} alt="coverGame" /></a>
             </div>
           );
         })}
@@ -315,7 +315,7 @@ export function Favourite(props) {
           return (
             <div className="border-grid" key={i}>
               <h3 className="title-game">{rec.game}</h3>
-              <img className='img-desideri' src={rec.url} alt="coverGame" />
+              <a href={rec.critic } target="_blank" rel="noreferrer"><img className='img-desideri' src={rec.url} alt="coverGame" /></a> 
             </div>
           );
         })}
