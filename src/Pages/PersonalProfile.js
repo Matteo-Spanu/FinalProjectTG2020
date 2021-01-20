@@ -123,7 +123,7 @@ const addReview =(rev)=>{
       User:name,
       Game: inputGame.current.value,
       Review: inputRev.current.value,
-      Comments: "",
+      Comments: JSON.stringify([]),
     });
     addReview({game: inputGame.current.value, text:inputRev.current.value, comments:[]})
   };
@@ -190,9 +190,10 @@ export function List(props) {
       postData("http://localhost:4000/mylist/" + name, {
         User: name,
         Game: res.name || inputGame.current.value,
-        Img:  res.url || defaultImg
+        Img:  res.url || defaultImg,
+        Critic: res.critic
       });
-      addList({game: res.name || inputGame.current.value, url: res.url || defaultImg})
+      addList({game: res.name || inputGame.current.value, url: res.url || defaultImg, critic:res.critic})
     })};
 
     const handleDelete = (id) => {
@@ -224,7 +225,7 @@ export function List(props) {
           <button className='button-delete-game' onClick={()=>handleDelete(rec.id)}>X</button>
             
           </div>
-            <img className='img-desideri'src={rec.url} alt="coverGame" />
+           <a href={rec.critic } target="_blank" rel="noreferrer"><img className='img-desideri'src={rec.url} alt="coverGame" /></a> 
         </div>})}
       </div>
     </div>
@@ -409,9 +410,10 @@ export function Favourite(props) {
       postData("http://localhost:4000/favourite/" + name, {
         User: name,
         Game: res.name || inputGame.current.value,
-        Img:  res.url || defaultImg
+        Img:  res.url || defaultImg,
+        Critic: res.critic
       });
-      addList({game: res.name || inputGame.current.value, url: res.url || defaultImg})
+      addList({game: res.name || inputGame.current.value, url: res.url || defaultImg,  critic: res.critic})
     })};
 
     const handleDelete = (id) => {
@@ -443,9 +445,11 @@ export function Favourite(props) {
             <h3 className="title-game-desideri">{rec.game}</h3>
             <button className='button-delete-game' onClick={()=>handleDelete(rec.id)}>X</button>
             </div>
+
           <div className='provaaa'>
-            <img className='img-desideri'src={rec.url} alt="coverGame" />
+            <a href={rec.critic } target="_blank" rel="noreferrer"><img className='img-desideri'src={rec.url} alt="coverGame" /></a>
          </div>
+
         </div>})}</div>
       </div>
       

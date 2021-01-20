@@ -1,6 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect } from 'react'
 import useLocalStorage from '../hooks/useLocalStorage';
 
+import { getData} from "../../function/getdata";
+import { useAuth0 } from "@auth0/auth0-react";
 const ContactsContext = React.createContext()
 
 export function useContacts() {
@@ -8,7 +10,15 @@ export function useContacts() {
 }
 
 export function ContactsProvider({ children }) {
-    const [contacts, setContacts]= useLocalStorage('contacts', [{id:'test@account.com',name:'test@account.com'}])
+    const [contacts, setContacts]= useLocalStorage('contacts', [])
+    
+    const { user } = useAuth0();
+    const { name } = user;
+      useEffect(() => {
+  
+          getData("http://localhost:4000/contact/" + name, setContacts);
+      
+        }, []);
 
     function createContact(id, name) {
         setContacts(prevContacts => {

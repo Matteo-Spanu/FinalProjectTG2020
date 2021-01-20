@@ -4,7 +4,7 @@ import { useContacts } from '../contexts/ContactsProvider'
 import { useConversations } from '../contexts/ConversationsProvider'
 
 export default function NewConversationModal( props ) {
-    const [selectedContactIds, setSelectedContactIds] = useState([])
+    // const [selectedContactIds, setSelectedContactIds] = useState([])
     const nameRef = useRef()
     const { contacts } = useContacts()
     const { createConversation } = useConversations()
@@ -12,29 +12,29 @@ export default function NewConversationModal( props ) {
     function handleSubmit(e) {
         e.preventDefault()
 
-        createConversation(selectedContactIds, nameRef.current.value)
+        createConversation(contacts.concat({id:nameRef.current.value, name:nameRef.current.value}), nameRef.current.value)
         props.closeModal()
     }
 
-    function handleCheckBoxChange(contactId) {
-        setSelectedContactIds(prevSelectedContacIds => {
-            if (prevSelectedContacIds.includes(contactId)) {
-                return prevSelectedContacIds.filter(prevId => {
-                    return contactId !== prevId
-                })
-            } else {
-                return [...prevSelectedContacIds, contactId]
-            }
-        })
+    // function handleCheckBoxChange(contactId) {
+    //     setSelectedContactIds(prevSelectedContacIds => {
+    //         if (prevSelectedContacIds.includes(contactId)) {
+    //             return prevSelectedContacIds.filter(prevId => {
+    //                 return contactId !== prevId
+    //             })
+    //         } else {
+    //             return [...prevSelectedContacIds, contactId]
+    //         }
+    //     })
         
-    }
+    // }
 
     return (
         <section className='box-new-module-consersation'>
         <Modal.Header closeButton>Create Conversation</Modal.Header>
         <Modal.Body>
             <Form  className='new-module-consersation' onSubmit={handleSubmit}>
-             {contacts.map(contact => (
+             {/* {contacts.map(contact => (
                 <Form.Group controlId={contact.id} key={contact.id}>
                     <Form.Check
                     type="checkbox"
@@ -44,7 +44,7 @@ export default function NewConversationModal( props ) {
                     />
 
                 </Form.Group>
-             ))}
+             ))} */}
              <Form.Group>
                    <Form.Label>Name</Form.Label>
                    <Form.Control type="text" ref={nameRef} required />
@@ -52,7 +52,7 @@ export default function NewConversationModal( props ) {
             <Button type="submit">Create</Button>
             </Form>
          </Modal.Body> 
-     </section >
+     </section>
  )
     
 }
