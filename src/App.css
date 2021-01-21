@@ -179,7 +179,7 @@ transition: 0.3s ease;
 margin-right: 20px;
 width: 15%;
 margin-left: 10px;
-margin-top: 88vh;
+margin-top: 85vh;
 position: fixed;
 height: 26px;
 background-color: #BF6EC7;
@@ -563,7 +563,7 @@ margin-top: 60px;
 color: black!Important;
 background-color: #7DFAA2!Important;
 border-color: transparent!Important;
-font-size: 0.8em!Important;
+font-size: 1em!Important;
 font-weight: bold!Important;
 width: 100%;
 }
