@@ -1,38 +1,917 @@
-.App {
-  text-align: center;
+* {
+background-color: black;
+color: rgb(241, 241, 241);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* NAVBAR */
+
+nav{
+background-color: transparent;
+position: fixed;
+width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.box-navbar{
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+.grid-navbar{
+/* display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-gap: 10px; */
+}
+
+.grid-navbar-m{
+justify-self: end;
+margin: 0 20px;
+float: right;
+grid-gap:10px;
+}
+
+.logo{
+display: inline-block;
+float: left;
+font-size:0.6em!important;
+color: white!Important;
+margin-left: 10px;
+margin-top: 10px;
+}
+
+.logo:hover{
+text-decoration:none;
+color: #7DFAA2!important;
+}
+
+.button-label{
+border: none;
+background-color:#7DFAA2 ;
+height: 26px;
+border-radius: 6px;
+margin-top: 10px;
+margin-right: 10px;
+margin-left: 10px;
+width: 105px;
+font-size: 0.9em;
+font-weight: bold;
+text-align: center;
+}
+
+.label{
+color: black;
+}
+
+.label:hover{
+text-decoration: none;
+color: black;
+transition: 0.3s ease;
+}
+
+.button-label:hover{
+background-color: #BF6EC7;
+border: none;
+transition: 0.3s ease;
+
+}
+
+.button-logout{
+background-color: #FD0953;
+font-size: 0.9em;
+border-radius: 6px;
+height: 26px;
+font-weight: bold;
+border: none;
+margin-left: 10px;
+margin-top: 11px!Important;
+width: 105px;
+}
+
+.button-logout:hover{
+background-color: black;
+transition: 0.3s ease;
+} 
+
+/* COOKIE */
+
+.banner-cookie{
+/* border: 2px solid #7DFAA2; */
+background-color: #BF6EC7;
+border-radius: 6px;
+margin:auto;
+width: 760px;
+height: 150px;
+margin-top: 109px;
+}
+
+.text-cookie{
+color: black;
+background-color:transparent;
+font-size: 0.8em;
+margin: 10px;
+padding-top: 10px;
+}
+
+.img-cookie{
+margin-top: 10px;
+margin-bottom: 10px;
+width: 100px;
+height: auto;
+margin-left: 45%;
+
+}
+
+.buttuon-cookie-r{
+margin: 10px;
+border: none;
+border-radius: 5px;
+background-color: #ececec;
+color: black;
+font-size: 0.9em;
+width: 100px;
+font-weight: bold;
+}
+
+.buttuon-cookie-r:hover{
+opacity: 0.8;
+transition: 0.3s ease;
+}
+
+.buttuon-cookie-a{
+margin: 10px;
+background-color: #7DFAA2;
+border-radius: 5px;
+color: black;
+border: none;
+font-size: 0.9em;
+width: 100px;
+font-weight: bold;
+}
+
+.buttuon-cookie-a:hover{
+opacity: 0.8;
+transition: 0.3s ease;
+}
+
+
+/* TASTO CHAT */
+
+.button-chat{
+margin-right: 20px;
+width: 15%;
+margin-left: 10px;
+margin-top: 88vh;
+position: fixed;
+height: 26px;
+background-color: #BF6EC7;
+border-radius: 3px;
+align-items: center;
+color: black;
+font-size: 0.9em;
+font-weight: bold;
+padding: 5px;
+}
+
+.button-chat:hover{
+background-color: #7DFAA2;
+text-decoration: none;
+color: black;
+transition: 0.3s ease;
+}
+
+/* BODY */
+
+/* .flex {
+display: flex; 
+} */
+
+.grid-center{
+  width: 100%;
+background-color: yellow!Important;
+}
+
+.center {
+margin: 0 auto;
+max-width: 600px;
+
+}
+
+/* PUBBLICAZIONE POST */
+
+
+.box-create-content{
+margin-top: 50px;
+border: 2px solid #709AF8;
+border-radius: 6px;
+padding: 10px;
+}
+
+.grid-create-content{
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-gap: 10px;
+}
+
+.item-create-content{
+display: grid;
+}
+
+.button-post{
+display: grid;
+background-color: #BF6EC7;
+border-radius: 3px;
+border: none;
+font-size: 0.9em;
+font-weight: bold;
+color: black;
+height: 26px;
+}
+
+.button-post:hover{
+background-color: #7DFAA2;
+transition: 0.3s ease;
+}
+
+.button-review{
+display: grid;
+background-color: #ED7199;
+border-radius: 3px;
+border: none;
+font-size: 0.9em;
+font-weight: bold;
+color: black;
+height: 26px;
+}
+
+.button-review:hover{
+background-color: #7DFAA2;
+transition: 0.3s ease;
+}
+
+.create-contenet{
+margin-top: 30px;
+margin-bottom: 30px;
+}
+
+.box{
+margin-top: 30px;
+border: 2px solid #7DFAA2;
+height: 70px;
+border-radius: 6px;
+display: flex;
+}
+
+.button-create-review-game{
+margin-top: 22px;
+padding-left: 10px;
+color: #ED7199;
+font-size: 0.9em;
+font-weight: bold;
+margin-right: 10px;
+border-radius: 6px;
+}
+
+.button-create-review{
+margin-top: 20px;
+margin-right: 7px;
+background-color: white;
+border-radius: 3px;
+color: black;
+border: none;
+padding-left: 10px;
+font-size: 0.9em;
+height: 26px;
+width: 34%;
+} 
+
+.button-create-post{
+margin-top: 30px;
+background-color: #7DFAA2;
+color: black;
+border: none;
+border-radius: 3px;
+width: 100%;
+height: 26px;
+font-size: 0.9em;
+font-weight: bold;
+}
+
+.button-create-post:hover{
+  background-color: #BF6EC7;
+  transition: 0.3s ease;
+}
+
+.grid-button-create-content{
+display: flex;
+margin: auto;
+margin-top: 20px;
+}
+
+
+
+.button-select-file{
+border-radius: 3px;
+width: 50%;
+color: black;
+font-size: 0.9em;
+font-weight: bold;
+margin-right: 5px;
+margin-left: 5px;
+height: 26px;
+}
+
+.button-post-file{
+border-radius: 3px;
+width: 50%;
+background-color:#7dfaa2;
+color: black;
+font-size: 0.9em;
+font-weight: bold;
+margin-right: 5px;
+margin-left: 5px;
+height: 26px;
+border: none;
+}
+
+.button-post-file:hover{
+  background-color:#ececec;
+  transition: 0.3s ease;
+}
+
+/* SCRIVI POST */
+
+.button-type{
+background-color:white;
+border: none;
+border-radius:3px;
+width: 100%;
+height: 80px;
+color: black;
+padding-left: 10px;
+font-size: 0.9em;
+margin-top: 10px;
+
+}
+
+/* POST PUBBLICATI */
+.borderbox {
+border: 2px solid #bf6ec7;
+margin-top: 60px!Important;
+border-radius: 9px;
+}
+
+.m-10 {
+margin: 0px;
+border-radius: 6px;
+}
+
+.p-10 {
+padding: 10px;
+border-radius: 6px;
+}
+
+.title {
+color: #7dfaa2;
+font-size: 1em;
+font-weight: bold;
+}
+
+.text-p{
+margin: 0px;
+font-size: 0.9em;
+padding: 3px;
+color: white;
+}
+
+.img-post{
+padding: 10px;
+border-radius: 9px;
+}
+
+.line {
+margin-top: 40px;
+margin-bottom: -20px;
+border-color: #7dfaa2;
+}
+
+.miniimg {
+height: 150px;
+width: 150px;
+}
+
+
+/* COMMENTI DEI POST */
+
+.button-comment{
+border-radius: 3px;
+margin-bottom: 10px;
+border: none;
+border: 2px solid #709AF8;
+width: 100%;
+font-size:0.9em;
+font-weight: bold;
+height: 26px;
+}
+
+.button-comment:hover{
+background-color:  #709AF8;
+transition: 0.3s ease;
+}
+
+.box-comment{
+border: 2px solid #ED7199;
+border-radius: 3px;
+/* background-color: white; */
+color: white;
+font-size: 0.8em;
+width: 75%;
+margin-right: 10px;
+}
+
+.button-send {
+border: 2px solid #7DFAA2;
+border-radius: 3px;
+width: 23%;
+font-size: 0.8em;
+font-weight: bold;
+}
+
+.utente-comment{
+color: #7dfaa2;
+font-size: 0.9em;
+font-weight: normal;
+}
+
+.text-comment{
+color: white;
+font-size: 0.9em;
+margin-top: -5px;
+}
+
+.text-footer{
+font-size: 0.6em;
+}
+
+/* CHAT...*/
+
+.grid-chat{
+height: 89vh;
+display: flex;
+}
+
+.box-sidebar{
+padding: 0 10px;
+max-height: 70vh;
+}
+
+.button-sidebar{
+display: flex;
+}
+
+.button-sidebar-consersations{
+border: transparent!Important;
+background-color: #BF6EC7!important;
+color: black!Important;
+font-size: 0.8em!important;
+font-weight: bold!Important;
+margin: 0 10px 10px 0; 
+}
+
+.button-sidebar-consersations:hover{
+background-color: #7DFAA2!important;
+transition: 0.3s ease;
+}
+
+.button-sider-contacts{
+border: transparent!Important;
+background-color: #ED7199!important;
+color: black!Important;
+font-size: 0.8em!important;
+font-weight: bold!Important;
+margin: 0;
+}
+
+.button-sider-contacts:hover{
+background-color: #7DFAA2!important;
+transition: 0.3s ease;
+}
+
+.button-new-consersations{
+font-size: 0.9em!important;
+}
+
+.nav-tabs .nav-link {
+border-radius: 6px;
+border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+}
+
+/* CHAT... PARTE SX INFO CONTATTI E CHAT*/
+
+.box-info-cc{
+margin-top: 20px;
+}
+
+.list-group-item {
+position: relative;
+display: block;
+color: white!important;
+padding: 5px;
+background-color: transparent!Important;
+border: 1px solid #7DFAA2!Important ;
+font-size: 0.8em!Important;
+font-weight: bold;
+margin-top: 10px;
+border-radius: 3px;
+height: 42px;
+}
+
+.chat-info-id{
+margin-top: 20px;
+}
+
+.info-id{
+color: #7DFAA2;
+font-size: 0.7em;
+font-weight: bold;
+}
+
+.box-button-new{
+margin-top: 60px;
+}
+
+.btn-primary {
+color: black!Important;
+background-color: #7DFAA2!Important;
+border-color: transparent!Important;
+font-size: 0.8em!Important;
+font-weight: bold!Important;
+width: 100%;
+}
+
+.box-new-module-consersation{
+border: 2px solid #bf6ec7;
+border-radius: 9px;
+}
+
+.new-module-consersation{
+font-size: 0.8em;
+}
+
+.modal-header{
+font-size: 0.8em;
+}
+
+.box-prova{
+  margin-top: -30px;
+  height: 69.5vh;
+ 
+  scrollbar-color: #7DFAA2;
+}
+
+/* CHAT... BOX-CHAT*/
+
+.chat-box{
+border: 2px solid #bf6ec7;
+width: 800px;
+margin: 0 20px;
+border-radius: 9px;
+height: 82vh;
+overflow: auto;
+}
+
+.chat-message{ 
+padding:10px;
+background-color: transparent;
+display: grid;
+grid-template-rows: 1fr 1fr;
+height: 100%;
+}
+
+.box-text-send{
+display: grid;
+align-items: end;
+}
+
+.message-from{
+color: black;
+background-color:#e4dede;
+border-radius: 6px;
+border: none;
+font-size: 0.8em;
+}
+
+.message-me {
+background-color: #7DFAA2!important;
+}
+
+.text-name-send{
+color: white;
+font-size: 0.6em;
+}
+
+
+/* PERSONAL PROFILE */
+
+.borderbox-profile{
+border: 2px solid #BF6EC7;
+padding: 5px;
+border-radius: 6px;
+display: flex;
+}
+
+.box-title-profile{ 
+margin-top:11px;
+margin-left: 10px;
+border-radius: 6px; 
+}
+
+.miniimg{
+width: 15%;
+height: 15%;
+padding: 5px;
+border-radius: 6px;
+
+}
+
+.title-title{
+font-size: 1em;
+color: #7DFAA2;
+border-radius: 6px;
+}
+
+.box-profile-content{
+margin-top: 30px;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+.grid-profile-content{
+display: grid;
+padding: 5px;
+}
+
+.button-profile-r{
+border: none;
+border-radius: 3px;
+background-color: #ED7199;
+height: 26px;
+}
+
+.button-profile-r:hover{
+background-color:#7DFAA2 ;
+}
+
+.button-profile-d{
+border: none;
+border-radius: 3px;
+background-color: #BF6EC7;
+height: 26px;
+}
+
+.button-profile-d:hover{
+background-color:#7DFAA2 ;
+transition: 0.3s ease;
+}
+
+.button-profile-c{
+border: none;
+border-radius: 3px;
+background-color: #709AF8;
+height: 26px;
+}
+
+.button-profile-c:hover{
+background-color:#7DFAA2 ;
+transition: 0.3s ease;
+}
+
+.button-profile-p{
+border: none;
+border-radius: 3px;
+background-color: #ececec;
+height: 26px;
+}
+
+.button-profile-p:hover{
+background-color:#7DFAA2 ;
+transition: 0.3s ease;
+}
+
+.info-button{
+background-color: transparent;
+justify-self: start;
+font-weight: bold;
+font-size: 0.9em;
+color: black;
+}
+
+.box-share{
+border: 2px solid #7DFAA2;
+display: flex;
+justify-content:space-between;
+padding: 0 10px;
+align-items:center;
+height: 80px;
+border-radius: 6px;
+margin-top: 40px;
+}
+
+.button-create-review-game-profile{
+color: #ED7199;
+font-size: 0.9em;
+font-weight: bold;
+border-radius: 6px;
+padding-top: 7px;
+}
+
+.button-create-review-profile{
+margin-right: 5px;
+background-color: white;
+border-radius: 3px;
+color: black;
+border: none;
+padding-left: 10px;
+font-size: 0.9em;
+height: 26px;
+width: 40%;
+} 
+
+.button-share-post-profile{
+width: 49%;
+height: 26px;
+background-color: #7DFAA2;
+border: none;
+border-radius: 3px;
+color: black;
+font-size: 0.9em;
+font-weight: bold;
+}
+
+.button-share-post-profile:hover{
+transition: 0.3s ease;
+background-color: #BF6EC7;
+}
+
+.button-share-post{
+align-items: center;
+height: 26px;
+background-color: #7DFAA2;
+border: none;
+border-radius: 3px;
+color: black;
+font-size: 0.9em;
+font-weight: bold;
+margin-top: 20px;
+margin-right: 5px;
+}
+
+.button-share-post:hover{
+transition: 0.3s ease;
+background-color: #BF6EC7;
+
+}
+
+.title-game{
+color: #7DFAA2  ;
+font-size: 0.9em;
+padding-top: 8px;
+padding-bottom: 8px;
+border-radius: 6px;
+font-weight: bold;
+}
+
+.lista-desideri-grid{
+margin-top: 40px;
+border: 2px solid #ED7199;
+display: flex;
+flex-wrap:wrap;
+border-radius: 6px;
+}
+
+.border-grid{
+margin: auto;
+justify-content: flex-start;
+margin-top:10px;
+margin-bottom: 10px;
+}
+
+.box-title-img{
+display: flex ;
+justify-content:space-between;
+}
+
+.button-delete-game{
+text-align: center;
+height: 18px;
+width: 30px;
+margin-top: 4px;
+color: white;
+font-size: 0.7em;
+font-weight: bold;
+background-color: #FD0953;
+border-radius: 6px;
+border: none;
+}
+
+.button-delete-game:hover{
+opacity: 0.6;
+transition: 0.3s ease;
+}
+
+
+.img-desideri{
+display: flex;
+max-width: 270px;
+max-height: 152px;
+border-radius: 6px;
+}
+
+.title-game-desideri{
+color: #7DFAA2;
+font-size: 0.9em;
+padding-top: 8px;
+padding-bottom: 8px;
+border-radius: 6px;
+font-weight: bold;
+text-align: right;
+}
+
+/* APPOINTMENT CALENDARIO */
+
+.categoria-appointment{
+color:#7DFAA2;
+font-size: 1em;
+font-weight: bold;
+margin-top:-20px;
+}
+
+.borderbox-appointment{
+border: 2px solid #BF6EC7;
+border-radius: 6px;
+margin-top: 20px; 
+}
+
+.grid-date{
+padding:10px;
+display: flex;
+justify-content: space-between;
+}
+
+.title-appointment{
+font-size: 0.9em;
+padding: 10px;
+color: #7DFAA2;
+font-weight: bold;
+background-color: transparent;
+}
+
+.info-text-appointment-date{
+font-size: 0.875em;
+line-height: 1em;
+}
+
+.info-text-appointment{
+font-size: 0.875em;
+line-height: 1em;
+font-weight: bold;
+border-radius: 6px;
+}
+
+
+.button-delete-appointment{
+color: white;
+font-size: 0.9em;
+font-weight: bold;
+background-color: #FD0953;
+border-radius: 3px;
+width: 40%;
+border: none;
+height: 26px;
+}
+
+.button-delete-appointment:hover{
+opacity: 0.8;
+transition: 0.3s ease;
   }
+
+.title-game-desideri-friend{
+color: #7DFAA2;
+font-size: 0.9em;
+padding-top: 8px;
+padding-bottom: 8px;
+border-radius: 6px;
+font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+.button-join-appointment{
+  color: black;
+  background-color: #7DFAA2;
+  width: 42%;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-weight: bold;
+  height: 26px;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
-function App() {
+import   Loading  from "./components/index";
+import Home from "./Pages/Home";
+import LogIn from "./Pages/LogIn";
+import NavBar from "./Pages/NavBar";
+import Footer from "./Pages/Footer";
+import PersonalProfile from "./Pages/PersonalProfile";
+import Appointment from "./Pages/Appointment";
+import FriendProfile from "./Pages/FriendProfile";
+import ProtectedRoute from "./auth/protected-route";
+import Chat from "./client/components/App";
+import "./App.css";
+
+const App = () => {
+  const { isLoading, isAuthenticated } = useAuth0();
+
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="app" className="d-flex flex-column h-100">
+    { isAuthenticated? <NavBar />:<div/>}
+      <div className="container flex-grow-1" style={{paddingTop:'100px'}}>
+        <Switch>
+          <ProtectedRoute path="/" exact component={Home} />
+          <ProtectedRoute path="/profile"  component={PersonalProfile} />
+          <ProtectedRoute path="/msg"  component={Chat} />
+          <ProtectedRoute path="/appointment"  component={Appointment} />
+          <ProtectedRoute path="/friend/:namefr"  component={FriendProfile} />
+          <Route path="/login" component={LogIn} />
+          <Route path="/loading" component={Loading} />
+        </Switch>
+      </div>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
