@@ -7,9 +7,9 @@ Necessità di essere affiancato al [backend] (https://github.com/bellagented/Fin
 
 ## File necessari
 
-il progetto necessità di un account [Auth0](https://auth0.com/) e del corrispondente file .env contenente:\
+il progetto necessità di un account [Auth0](https://auth0.com/) e del corrispondente file .env contenente:
 
-`REACT_APP_AUTH0_DOMAIN= *your app domain*`
+`REACT_APP_AUTH0_DOMAIN= *your app domain*`\
 `REACT_APP_AUTH0_CLIENT_ID= *your client id*`
 
 
