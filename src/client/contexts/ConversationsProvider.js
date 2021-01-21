@@ -15,10 +15,6 @@ export function ConversationsProvider({ id, children }) {
   const { contacts } = useContacts()
   const socket = useSocket()
 
-useEffect(() => {
-  console.log(conversations)
-  
-}, [conversations]);
 
 
   function createConversation(recipients, game) {
