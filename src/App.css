@@ -175,12 +175,24 @@ transition: 0.3s ease;
 
 /* TASTO CHAT */
 
+.box-chat{
+display: block;
+  width: 15%;
+height: 85vh;
+display: flex;
+justify-content: flex-start;
+align-items: flex-end;
+background-color: transparent;
+
+}
+
 .button-chat{
-margin-right: 20px;
-width: 15%;
-margin-left: 10px;
-margin-top: 85vh;
+display: block;
 position: fixed;
+display: flex;
+margin-right: 20px;
+width: 13%;
+margin-left: 10px;
 height: 26px;
 background-color: #BF6EC7;
 border-radius: 3px;

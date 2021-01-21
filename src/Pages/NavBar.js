@@ -29,6 +29,7 @@ export default function NavBar() {
           </div>
         </section>
         {cookie && <CookieBanner switch={()=> setCookie(false) } />}
+        
       <div className='box-chat'>
         <Link className='button-chat'  to='/msg'>Chat...</Link>
       </div>
