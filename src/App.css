@@ -568,6 +568,11 @@ font-weight: bold!Important;
 width: 100%;
 }
 
+.btn-primary:hover{
+  background-color: #BF6EC7!Important;
+  transition: 0.3s ease!important;
+}
+
 .box-new-module-consersation{
 border: 2px solid #bf6ec7;
 border-radius: 9px;
@@ -582,17 +587,16 @@ font-size: 0.8em;
 }
 
 .box-prova{
-  margin-top: -30px;
-  height: 69.5vh;
- 
-  scrollbar-color: #7DFAA2;
+margin-top: -30px;
+height: 69.5vh;
+scrollbar-color: #7DFAA2;
 }
 
 /* CHAT... BOX-CHAT*/
 
 .chat-box{
 border: 2px solid #bf6ec7;
-width: 800px;
+width: 720px;
 margin: 0 20px;
 border-radius: 9px;
 height: 82vh;
