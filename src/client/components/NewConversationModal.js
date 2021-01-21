@@ -12,7 +12,7 @@ export default function NewConversationModal( props ) {
     function handleSubmit(e) {
         e.preventDefault()
 
-        createConversation(contacts.concat({id:nameRef.current.value, name:nameRef.current.value}), nameRef.current.value)
+        createConversation(contacts.map((cont)=>{return cont.id}).concat(nameRef.current.value), nameRef.current.value)
         props.closeModal()
     }
 
