@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from "react-router-dom";
+import { Link , useLocation} from "react-router-dom";
 import LogoutButton from '../components/logout-button';
 import '../App.css';
 
@@ -9,7 +9,7 @@ export default function NavBar() {
   const { user } = useAuth0();
   const { name } = user;
   const [cookie, setCookie] = useState(true);
- 
+ let location= useLocation();
   return (
     <nav>
       {/* <p>player1: {name}</p> */}
@@ -30,7 +30,7 @@ export default function NavBar() {
         </section>
         {cookie && <CookieBanner switch={()=> setCookie(false) } />}
       <div className='box-chat'>
-        <Link className='button-chat'  to='/msg'>Chat...</Link>
+        {(location.pathname !== "/msg" )&&<Link className='button-chat'  to='/msg'>Chat...</Link>}
       </div>
     </nav>
     
