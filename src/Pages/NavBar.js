@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import LogoutButton from '../components/logout-button';
 import '../App.css';
-import prova from '../image/prova.png';
+
 
 export default function NavBar() {
   const { user } = useAuth0();
@@ -34,8 +34,16 @@ export default function NavBar() {
       </div>
     </nav>
     
-  );
-}
+ );
+
+ 
+
+ 
+ }
+
+
+ 
+
 
 
  function CookieBanner(props){

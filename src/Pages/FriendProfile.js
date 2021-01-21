@@ -298,7 +298,7 @@ export function Calendar(props) {
            <h3 className="title-appointment">{ev.user} wants to play {ev.game}</h3>
            <div className='grid-date'>
             <p className='info-text-appointment-date'>{ev.date}</p>
-            {ev.partecipants.length>0? <p className='info-text-appointment' >Joined: {ev.partecipants.join(', ')}</p>:<p>Join first</p>}
+            {ev.partecipants.length>0? <p className='info-text-appointment'>{ev.partecipants.join(', ')}</p>:<p className='info-text-appointment-date'>Join first</p>}
               <button className='button-join-appointment' onClick={()=>addPartecipant(ev, i)}>Join</button>
             </div>
           </div>})}</div>
