@@ -1,8 +1,11 @@
 # COINOP
 
-Progetto finale per il Codemaster Bootcamp di [Talent Garden](https://https://talentgarden.org/) di [Daniele Bellagente](https://github.com/bellagented) [Matteo Spanu](https://github.com/Matteo-Spanu) [Dario Bellusci](https://github.com/dariobellusci).\
+Progetto finale per il Codemaster Bootcamp di [Talent Garden](https://https://talentgarden.org/) di:\
+ [Daniele Bellagente](https://github.com/bellagented),\ 
+ [Matteo Spanu](https://github.com/Matteo-Spanu),\
+  [Dario Bellusci](https://github.com/dariobellusci).\
 Social network per videogiocatori per condividere post, recensioni, giochi preferiti e appuntamenti per multiplayer.\
-Necessità di essere affiancato al [backend] (https://github.com/bellagented/FinalProjectTG2020server).
+Necessità di essere affiancato al [backend](https://github.com/bellagented/FinalProjectTG2020server).
 
 
 ## File necessari
